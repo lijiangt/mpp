@@ -1,0 +1,7 @@
+m2/
+m2-target/
+target/
+bin/
+*.pyc
+*.bak
+*~
