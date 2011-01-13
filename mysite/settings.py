@@ -93,3 +93,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'polls',
 )
+
+CATEGORY_ICON_PATH='icon/%Y/%j'
+ARTICLE_PIC_PATH='pic/%Y/%j'
