@@ -92,7 +92,9 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'polls',
+    'cms',
 )
 
+USE_L10N = True
 CATEGORY_ICON_PATH='icon/%Y/%j'
 ARTICLE_PIC_PATH='pic/%Y/%j'
