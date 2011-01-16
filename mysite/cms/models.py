@@ -16,11 +16,10 @@ class Category(models.Model):
     icon=models.ImageField(u'图标',upload_to=settings.CATEGORY_ICON_PATH,blank=True, null=True)
     type=models.SmallIntegerField(u'类型',choices=TYPE_CHOICES)
     url=models.CharField(u'链接',max_length=255,blank=True, null=True,help_text=u'跳转链接或者RSS汇聚链接')
-    seqNum=models.IntegerField(u'序号',default=1)
+    seqNum=models.IntegerField(u'序号',default=50,unique=True)
     created=models.DateTimeField(u'创建时间',auto_now_add=True)
     lastModified=models.DateTimeField(u'最后修改时间',auto_now=True)
 #    father=models.ForeignKey('self',verbose_name=u'父类别')
-#排序字段
     tag=models.CharField(u'标签',max_length=255,blank=True, null=True)
     class Meta:
         verbose_name = "类别"
