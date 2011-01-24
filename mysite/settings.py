@@ -93,8 +93,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'polls',
+#    'polls',
     'cms',
+    'mysite',
 )
 
 USE_L10N = True

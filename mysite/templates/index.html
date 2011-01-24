@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}首页{% endblock %}
+{% block content %}
+<h1>移动门户平台</h1>
+<ul>
+{% for category in categories %}
+<li><a href="content/{{category.id}}/"><img src="{{category.icon.url}}"/>{{category.name}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
