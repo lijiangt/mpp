@@ -1,5 +1,5 @@
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import include
+from django.conf.urls.defaults import patterns,include
+from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -13,4 +13,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^polls/$', 'polls.views.index'),
     (r'^admin/', include(admin.site.urls)),
+    (r'^content/',include('cms.urls')),
 )
+
+
+if settings.MEDIA_ROOT and settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^s/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,}),
+    )

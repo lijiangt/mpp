@@ -4,10 +4,10 @@ from django.conf import settings
 
 class Category(models.Model):
     TYPE_CHOICES = (
-        (10, u'父类别'),
+#        (10, u'父类别'),
         (20, u'文章列表'),
         (30, u'图文列表'),
-        (40, u'普通文章列表'),
+        (40, u'单篇文章/图文'),
         (50, u'链接列表'),
         (60, u'跳转链接'),
         (70, u'RSS汇聚'),

@@ -1,0 +1,7 @@
+操作系统推荐ubuntu linux或者debian
+Python version 2.4 or higher
+
+Django 1.2.4 or higher
+
+安装feedparser
+sudo easy_install feedparser
