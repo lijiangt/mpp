@@ -1,9 +1,11 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.conf import settings
 
-from cms.models import Category 
 def index(request):
-    categories = Category.objects.order_by('-seqNum');
+    page = settings.PAGES['home']
+    apps = page.getApps()
     return render_to_response('index.html', {
-                'categories':categories,
+                'page':page,
+                'apps':apps,
     },context_instance=RequestContext(request))

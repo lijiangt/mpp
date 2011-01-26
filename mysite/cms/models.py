@@ -20,10 +20,18 @@ class Category(models.Model):
     created=models.DateTimeField(u'创建时间',auto_now_add=True)
     lastModified=models.DateTimeField(u'最后修改时间',auto_now=True)
 #    father=models.ForeignKey('self',verbose_name=u'父类别')
-    tag=models.CharField(u'标签',max_length=255,blank=True, null=True)
+    tags=models.CharField(u'标签',default=',home,',max_length=255,blank=True, null=True)
     class Meta:
         verbose_name = "类别"
         verbose_name_plural = "类别"
+    def getIconUrl(self):
+        return self.icon.url
+    def getName(self):
+        return self.name;
+    def getUrl(self):
+        return '/content/%s/'%self.id
+    def getSeqNum(self):
+        return self.seqNum
 
 class Article(models.Model):
     TYPE_CHOICES = (

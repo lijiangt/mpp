@@ -101,3 +101,10 @@ INSTALLED_APPS = (
 USE_L10N = True
 CATEGORY_ICON_PATH='icon/%Y/%j'
 ARTICLE_PIC_PATH='pic/%Y/%j'
+
+
+from base import Page,Provider
+PAGES = {
+    'home':Page(u'Home',providers=[Provider('cms.provider.CmsProvider',page='home')]),
+    'tool':Page(u'Usefull Tools',providers=[Provider('cms.provider.CmsProvider',page='tool')]),
+}
