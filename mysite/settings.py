@@ -75,6 +75,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
+if DEBUG:
+    MIDDLEWARE_CLASSES += ('common.middleware.SqlPrintingMiddleware',)
+
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
@@ -102,9 +105,18 @@ USE_L10N = True
 CATEGORY_ICON_PATH='icon/%Y/%j'
 ARTICLE_PIC_PATH='pic/%Y/%j'
 
+gettext_noop = lambda s: s
+
+LANGUAGES=(
+           ('zh-cn',gettext_noop('Chinese')),
+           ('en',gettext_noop('English')),
+)
+
+DEFAUTL_PAGE_SIZE = 20
+DEFAULT_THEME = 'default'
 
 from base import Page,Provider
 PAGES = {
     'home':Page('Home Page',u'Home',providers=[Provider('cms.provider.CmsProvider',page='home')]),
-    'tool':Page('Usefull Tools',u'Tools',providers=[Provider('cms.provider.CmsProvider',page='tool')]),
+    'tools':Page('Usefull Tools',u'Tools',providers=[Provider('cms.provider.CmsProvider',page='tool')]),
 }
