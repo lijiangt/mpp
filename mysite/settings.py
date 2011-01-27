@@ -105,6 +105,6 @@ ARTICLE_PIC_PATH='pic/%Y/%j'
 
 from base import Page,Provider
 PAGES = {
-    'home':Page(u'Home',providers=[Provider('cms.provider.CmsProvider',page='home')]),
-    'tool':Page(u'Usefull Tools',providers=[Provider('cms.provider.CmsProvider',page='tool')]),
+    'home':Page('Home Page',u'Home',providers=[Provider('cms.provider.CmsProvider',page='home')]),
+    'tool':Page('Usefull Tools',u'Tools',providers=[Provider('cms.provider.CmsProvider',page='tool')]),
 }

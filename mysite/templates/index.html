@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %}首页{% endblock %}
+{% block title %}{{page.local_name}}{% endblock %}
 {% block content %}
-<h1>{{page.title}}</h1>
+<h1>{{page.local_name}}</h1>
 <ul>
 {% for app in apps %}
 <li><a href="{{app.getUrl}}"><img src="{{app.getIconUrl}}"/>{{app.getName}}</a></li>

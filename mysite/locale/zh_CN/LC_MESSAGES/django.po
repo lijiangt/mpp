@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-27 13:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: setttings.py:106
+msgid "Home Page"
+msgstr "首页"
+
+#: setttings.py:106
+msgid "Usefull Tools"
+msgstr "常用工具"
+
+#: cms/models.py:9
+msgid "Article List"
+msgstr "文章列表"
+
+#: cms/models.py:10
+msgid "Article With Picture List"
+msgstr "图文列表"
+
+#: cms/models.py:11
+msgid "Single Article"
+msgstr "单篇文章/图文"
+
+#: cms/models.py:12
+msgid "Link List"
+msgstr "链接列表"
+
+#: cms/models.py:13 cms/models.py:19
+msgid "Redirection List"
+msgstr "跳转链接"
+
+#: cms/models.py:14 cms/models.py:19
+msgid "RSS"
+msgstr "RSS订阅"
+
+#: cms/models.py:16
+msgid "Name"
+msgstr "名称"
+
+#: cms/models.py:17
+msgid "Icon"
+msgstr "图标"
+
+#: cms/models.py:18 cms/models.py:50
+msgid "Type"
+msgstr "类型"
+
+#: cms/models.py:19 cms/models.py:56
+msgid "URL"
+msgstr "链接"
+
+#: cms/models.py:20
+msgid "Serial Number"
+msgstr "序号"
+
+#: cms/models.py:21
+msgid "Created Time"
+msgstr "创建时间"
+
+#: cms/models.py:22 cms/models.py:54
+msgid "Last Modified Time"
+msgstr "最后修改时间"
+
+#: cms/models.py:24
+msgid "Tag"
+msgstr "标签"
+
+#: cms/models.py:26 cms/models.py:27 cms/models.py:51
+msgid "Category"
+msgstr "类别"
+
+#: cms/models.py:39 cms/models.py:45
+msgid "Normal"
+msgstr "普通"
+
+#: cms/models.py:40
+msgid "Article With Picture"
+msgstr "图文"
+
+#: cms/models.py:41
+msgid "Friend Link"
+msgstr "友情链接"
+
+#: cms/models.py:44 cms/models.py:55
+msgid "Set Top"
+msgstr "置顶"
+
+#: cms/models.py:47
+msgid "Title"
+msgstr "标题"
+
+#: cms/models.py:48
+msgid "Content"
+msgstr "内容"
+
+#: cms/models.py:49
+msgid "Picture"
+msgstr "图片"
+
+#: cms/models.py:52
+msgid "View Times"
+msgstr "查看次数"
+
+#: cms/models.py:53
+msgid "Publish Time"
+msgstr "发布时间"
+
+#: cms/models.py:58 cms/models.py:59
+msgid "Article"
+msgstr "文章"
+
+#: cms/templates/content/feed_entry.html:9
+msgid "Please click here to visit full aricle."
+msgstr "请点击此处查看全文。"

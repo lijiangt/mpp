@@ -1,9 +1,11 @@
 from django.utils.importlib import import_module
+from django.utils.translation import ugettext_lazy as _
 
 class Page(object):
-    def __init__(self,title,providers,**kwargs):
+    def __init__(self,local_name_key,title,providers,**kwargs):
         self.title,self.providers = title,providers
         self.kwargs = kwargs
+        self.local_name = _(local_name_key)
         
     def getApps(self):
         apps = []

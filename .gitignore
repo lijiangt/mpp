@@ -6,4 +6,5 @@ target/
 bin/
 *.pyc
 *.bak
+*.mo
 *~
