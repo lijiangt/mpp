@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load ext_query_string %}
+{% load media %}
+{% load theme %}
+{% load title_field_html %}
+{% block title %}类别列表{% endblock %}
+{% block content %}
+<form name="deleteForm" action="" method="POST">
+<input type="hidden" name="__http_method" value="DELETE"/>
+<input type="hidden" name="ext_query_str" value="{% ext_query_raw_string %}"/>
+</form>
+<table class="main" summary="List Table">
+	<caption>类别列表</caption>
+	<thead>
+		<th width="30">序号</th>
+		<th>{% title_field_html "name" "Name" %}</th>
+		<th width="120">{% title_field_html "type" "Type" %}</th>
+		<th width="120">{% title_field_html "seqNum" "Serial Number" -%}</th>
+		<th>操作</th>
+	</thead>
+{% if results_per_page %}
+	<tfoot>
+		<th colspan="6">{% include "lib/paginator.html" %}</th>
+	</tfoot>
+{% endif %}
+	<tbody>
+{% for object in object_list %}
+		<tr title="双击此行查看详细内容"
+			ondblclick="Javascript:self.location.href='/cms/{{ object.id }}{% ext_query_string ? %}'">
+			<td>
+			{% if results_per_page %}
+			{{ first_on_page|add:forloop.counter0 }}
+			{% else %}
+			{{ forloop.counter }}
+			{% endif %}
+			</td>
+			<td class="left"><a href="/cms/{{ object.id }}{% ext_query_string ? %}" title="查看">{{ object.name }}</a></td>
+			<td>
+			{% if object.type == 10 %}
+				{% trans 'Father Category' %}
+			{% endif %}
+			{% if object.type == 20 %}
+				{% trans 'Article List' %}
+			{% endif %}
+			{% if object.type == 30 %}
+				{% trans 'Article With Picture List' %}
+			{% endif %}
+			{% if object.type == 40 %}
+				{% trans 'Single Article' %}
+			{% endif %}
+			{% if object.type == 50 %}
+				{% trans 'Link List' %}
+			{% endif %}
+			{% if object.type == 60 %}
+				{% trans 'Redirection List' %}
+			{% endif %}
+			{% if object.type == 70 %}
+				{% trans 'RSS' %}
+			{% endif %}
+			</td>
+			<td>
+			{{object.seqNum}}
+			</td>
+			<td>
+			<a href="/cms/{{ object.id }}{% ext_query_string ? %}" title="查看"><img src="{% media_url %}/themes/{% theme %}/button/view.gif" alt="查看"></a>
+			<a href="/cms/!edit?id={{ object.id }}{% ext_query_string &amp; %}" title="编辑"><img src="{% media_url %}/themes/{% theme %}/button/edit.gif" alt="编辑"></a>
+			<a href="Javascript:Mpp.Common.deleteConfirmUseForm('/cms/{{ object.id }}')" title="删除"><img src="{% media_url %}/themes/{% theme %}/button/delete.gif" alt="删除"></a>
+			</td>
+		</tr>
+{% endfor %}
+{% if results_per_page %}
+{% load repeat %}{% repeat results_per_page object_list|length %}<tr>
+	<td colspan="5">&nbsp;</td>
+</tr>
+{% endrepeat %}
+{% endif %}
+	</tbody>
+</table>
+{% endblock %}

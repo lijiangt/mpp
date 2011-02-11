@@ -5,8 +5,8 @@ from django.utils.translation import ugettext
 from django.utils.encoding import force_unicode
 import theme
 
-IS_ASC_PARA='isAsc'
-ORDER_FIELD_PARA='orderField'
+ORDER_FIELD_PARA='sort'
+DEFAULT_ASC_ORDER = True
 
 register = template.Library()
 def get_url(para):
@@ -22,32 +22,32 @@ def get_order_str(request):
     para = request.GET
     field = para.get(ORDER_FIELD_PARA,None)
     if field:
-        if 'True' == para.get(IS_ASC_PARA,False):
-            return field
-        else:
-            return '-%s'%field
+        return field
     else:
         return None
-            
+    
 class TagNode(template.Node):
-    def __init__(self,field,name_key,default_asc=None):
+    def __init__(self,field,name_key,current_asc=None):
         self.field = field
         self.name_key = name_key
-        self.default_asc = default_asc
+        self.current_asc = current_asc
         
     def render(self, context):
         para = context['request'].GET.copy()
         field = self.field.resolve(context)
         name = force_unicode(ugettext(self.name_key.resolve(context)))
-        if field == para.get(ORDER_FIELD_PARA,None) or (not para.has_key(ORDER_FIELD_PARA) and self.default_asc != None):
-            if field == para.get(ORDER_FIELD_PARA,None):
-                asc =  False
-                if para.has_key(IS_ASC_PARA):
-                    asc = para[IS_ASC_PARA]=='True'
-            elif not para.has_key(ORDER_FIELD_PARA) and self.default_asc != None:
+        sort = para.get(ORDER_FIELD_PARA,None)
+        if (sort and (field == sort or '-'+field == sort)) or (not sort and self.current_asc != None):
+            if para.has_key(ORDER_FIELD_PARA):
+                asc = True
+                if para.get(ORDER_FIELD_PARA).startswith('-'):
+                    asc = False
+            elif not para.has_key(ORDER_FIELD_PARA) and self.current_asc != None:
+                asc = self.current_asc
+            if asc:
+                para[ORDER_FIELD_PARA]='-'+field
+            else:
                 para[ORDER_FIELD_PARA]=field
-                asc = self.default_asc
-            para[IS_ASC_PARA] = not asc
             reverse_order_name=force_unicode('正向')
             order_alt = force_unicode('降序 ')
             order = 'desc'
@@ -66,8 +66,10 @@ class TagNode(template.Node):
                      'order_alt':order_alt,
                      }
         else:
-            para[ORDER_FIELD_PARA]=field
-            para[IS_ASC_PARA] = True
+            if DEFAULT_ASC_ORDER:
+                para[ORDER_FIELD_PARA]=field
+            else:
+                para[ORDER_FIELD_PARA]='-'+field
             return force_unicode('<a href="%(url)s" title="点击此处按%(name)s%(order_name)s排序">%(name)s</a>')%{'url':get_url(para),
                          'name':name,
                          'order_name':force_unicode('正向')}
@@ -75,7 +77,7 @@ class TagNode(template.Node):
 @register.tag
 def title_field_html(parser, token):
     paras = token.split_contents()
-    print paras
+#    print paras
     if len(paras) == 4:
         if paras[3] in ['+','-']:
             return TagNode(parser.compile_filter(paras[1]),parser.compile_filter(paras[2]),paras[3]=='+')

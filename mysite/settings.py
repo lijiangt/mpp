@@ -45,20 +45,30 @@ USE_L10N = True
 # Example: "/home/media/media.lawrence.com/"
 import os
 PROJECT_ROOT = os.path.dirname(__file__)
-MEDIA_ROOT = '%s/s/' % PROJECT_ROOT
+MEDIA_ROOT = '%s/s' % PROJECT_ROOT
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/s/'
+MEDIA_URL = '/s'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/s_admin/'
+ADMIN_MEDIA_PREFIX = '/s_admin'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'hvb(-s#9p%f-k@xs*hk8_pbglaic#eu#0!6!3#y9qs+ak_o6o+'
+
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+"django.core.context_processors.i18n",
+"django.core.context_processors.request",
+"django.core.context_processors.media",
+"django.contrib.messages.context_processors.messages")
+
+
+if DEBUG:
+    TEMPLATE_CONTEXT_PROCESSORS += ("django.core.context_processors.debug",)
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (

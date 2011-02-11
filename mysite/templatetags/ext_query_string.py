@@ -4,7 +4,7 @@ from django.template.defaultfilters import stringfilter
 
 register = template.Library()
 
-EXT_QUERY_STRING_PARA ='extQueryString' 
+EXT_QUERY_STRING_PARA ='ext_query_str' 
 
 
 class TagNode(template.Node):
