@@ -64,6 +64,7 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
 "django.core.context_processors.i18n",
 "django.core.context_processors.request",
 "django.core.context_processors.media",
+"django.core.context_processors.csrf",
 "django.contrib.messages.context_processors.messages")
 
 
@@ -124,7 +125,7 @@ LANGUAGES=(
 
 DEFAUTL_PAGE_SIZE = 20
 DEFAULT_THEME = 'default'
-
+EXTEND_HTTP_METHOD='__http_method'
 from base import Page,Provider
 PAGES = {
     'home':Page('Home Page',u'Home',providers=[Provider('cms.provider.CmsProvider',page='home')]),

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_pc.html" %}
 {% load i18n %}
 {% load ext_query_string %}
 {% load media %}
@@ -6,22 +6,27 @@
 {% load title_field_html %}
 {% block title %}类别列表{% endblock %}
 {% block content %}
-<form name="deleteForm" action="" method="POST">
+<a href="!edit">添加类别</a>
+<form name="deleteForm" action="" method="POST">{% csrf_token %}
 <input type="hidden" name="__http_method" value="DELETE"/>
 <input type="hidden" name="ext_query_str" value="{% ext_query_raw_string %}"/>
 </form>
 <table class="main" summary="List Table">
 	<caption>类别列表</caption>
 	<thead>
-		<th width="30">序号</th>
-		<th>{% title_field_html "name" "Name" %}</th>
-		<th width="120">{% title_field_html "type" "Type" %}</th>
-		<th width="120">{% title_field_html "seqNum" "Serial Number" -%}</th>
-		<th>操作</th>
+		<tr>
+			<th width="30">序号</th>
+			<th>{% title_field_html "name" "Name" %}</th>
+			<th width="120">{% title_field_html "type" "Type" %}</th>
+			<th width="120">{% title_field_html "seqNum" "Serial Number" -%}</th>
+			<th>操作</th>
+		</tr>
 	</thead>
 {% if results_per_page %}
 	<tfoot>
-		<th colspan="6">{% include "lib/paginator.html" %}</th>
+		<tr>
+			<th colspan="6">{% include "lib/paginator.html" %}</th>
+		</tr>
 	</tfoot>
 {% endif %}
 	<tbody>
@@ -53,7 +58,7 @@
 				{% trans 'Link List' %}
 			{% endif %}
 			{% if object.type == 60 %}
-				{% trans 'Redirection List' %}
+				{% trans 'Redirection Link' %}
 			{% endif %}
 			{% if object.type == 70 %}
 				{% trans 'RSS' %}

@@ -43,7 +43,7 @@ msgid "Link List"
 msgstr "链接列表"
 
 #: cms/models.py:13 cms/models.py:19
-msgid "Redirection List"
+msgid "Redirection Link"
 msgstr "跳转链接"
 
 #: cms/models.py:14 cms/models.py:19

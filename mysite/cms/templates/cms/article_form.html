@@ -1,0 +1,31 @@
+{% extends "base_pc.html" %}
+{% load i18n %}
+{% load ext_query_string %}
+{% load media %}
+{% load theme %}
+{% block title %}编辑文章{% endblock %}
+{% block content %}
+<form name="form" action="./{{ id }}" method="POST" onsubmit="return true;">{% csrf_token %}
+<input type="hidden" name="submit_times" value="{{ submit_times }}"/>
+<input type="hidden" name="ext_query_str" value="{{ ext_query_str }}"/>
+{% if id %}
+<input type="hidden" name="id" value="{{ id }}"/>
+<input type="hidden" name="__http_method" value="PUT"/>
+{% endif %}
+<table class="main" summary="Edit Table">
+<caption>编辑文章</caption>
+<thead>
+<th colspan="2">
+</th>
+</thead>
+<tfoot>
+<th colspan="2">
+{% include "lib/form_buttons.html" %} 
+</th>
+</tfoot>
+<tbody>
+{{ form.as_table }}
+</tbody>
+</table>
+</form>
+{% endblock %}

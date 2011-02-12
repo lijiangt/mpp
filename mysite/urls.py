@@ -3,6 +3,7 @@ from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -12,6 +13,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^$','views.index'),
+    (r'^i18n.js$', direct_to_template, {'template': 'js_i18n.html', 'mimetype':'text/javascript'}),
 #    (r'^page/','views.page'),
     (r'^admin/', include(admin.site.urls)),
     (r'^content/',include('cms.urls')),

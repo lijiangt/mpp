@@ -1,0 +1,120 @@
+{% extends "base_pc.html" %}
+{% load i18n %}
+{% load title_field_html %}
+{% load ext_query_string %}
+{% load media %}
+{% load theme %}
+{% block title %}查看类别{% endblock %}
+{% block content %}
+<form name="deleteForm" action="" method="POST">{% csrf_token %}
+<input type="hidden" name="__http_method" value="DELETE"/>
+<input type="hidden" name="ext_query_str" value="{% ext_query_raw_string %}"/>
+</form>
+<table class="main" summary="view Table">
+	<caption>类别详细信息</caption>
+	<thead>
+		<th colspan="2"></th>
+	</thead>
+	<tfoot>
+		<th colspan="2">
+			<a href="Javascript:self.location.href='./{% if request.GET.ext_query_str %}?{{ request.GET.ext_query_str }}{% endif %}'">类别列表</a>
+			<a href="!edit?id={{ category.id }}{{ request.GET.ext_query_str|encode_ext_query_string:"&" }}">编辑</a>
+			<a href="Javascript:Mpp.Common.deleteConfirmUseForm('{{ category.id }}')">删除</a>
+		</th>
+	</tfoot>
+	<tbody>
+		<tr>
+			<th>{% trans 'Name' %}:</th>
+			<td>{{ category.name }}</td>
+		</tr>
+		<tr>
+			<th>{% trans 'Type' %}:</th>
+			<td>
+			{% if category.type == 10 %}
+				{% trans 'Father Category' %}
+			{% endif %}
+			{% if category.type == 20 %}
+				{% trans 'Article List' %}
+			{% endif %}
+			{% if category.type == 30 %}
+				{% trans 'Article With Picture List' %}
+			{% endif %}
+			{% if category.type == 40 %}
+				{% trans 'Single Article' %}
+			{% endif %}
+			{% if category.type == 50 %}
+				{% trans 'Link List' %}
+			{% endif %}
+			{% if category.type == 60 %}
+				{% trans 'Redirection Link' %}
+			{% endif %}
+			{% if category.type == 70 %}
+				{% trans 'RSS' %}
+			{% endif %}
+			</td>
+		</tr>
+		<tr>
+			<th>{% trans 'Serial Number' %}:</th>
+			<td>{{ category.seqNum }}</td>
+		</tr>
+	</tbody>
+</table>
+{% if category.type == 20 or category.type == 30 or category.type == 40 or category.type == 50 %}
+<a href="{{category.id}}/!edit">发布文章</a>
+<table class="main" summary="List Table">
+	<caption>文章列表</caption>
+	<thead>
+		<th width="30">序号</th>
+		<th>{% title_field_html "title" "Title" %}</th>
+		<th width="120">{% title_field_html "type" "Type" %}</th>
+		<th width="120">{% title_field_html "viewTimes" "View Times" -%}</th>
+		<th>操作</th>
+	</thead>
+{% if results_per_page %}
+	<tfoot>
+		<th colspan="6">{% include "lib/paginator.html" %}</th>
+	</tfoot>
+{% endif %}
+	<tbody>
+{% for object in object_list %}
+		<tr title="双击此行查看详细内容"
+			ondblclick="Javascript:self.location.href='/cms/{{ category.id }}/{{ object.id }}{% ext_query_string ? %}'">
+			<td>
+			{% if results_per_page %}
+			{{ first_on_page|add:forloop.counter0 }}
+			{% else %}
+			{{ forloop.counter }}
+			{% endif %}
+			</td>
+			<td class="left"><a href="/cms/{{ category.id }}/{{ object.id }}{% ext_query_string ? %}" title="查看">{{ object.title }}</a></td>
+			<td>
+			{% if object.type == 10 %}
+				{% trans 'Normal' %}
+			{% endif %}
+			{% if object.type == 20 %}
+				{% trans 'Article With Picture' %}
+			{% endif %}
+			{% if object.type == 30 %}
+				{% trans 'Friend Link' %}
+			{% endif %}
+			</td>
+			<td>
+			{{object.viewTimes}}
+			</td>
+			<td>
+			<a href="/cms/{{category.id}}/{{ object.id }}{% ext_query_string ? %}" title="查看"><img src="{% media_url %}/themes/{% theme %}/button/view.gif" alt="查看"></a>
+			<a href="/cms/{{category.id}}/!edit?id={{ object.id }}{% ext_query_string &amp; %}" title="编辑"><img src="{% media_url %}/themes/{% theme %}/button/edit.gif" alt="编辑"></a>
+			<a href="Javascript:Mpp.Common.deleteConfirmUseForm('/cms/{{category.id}}/{{ object.id }}')" title="删除"><img src="{% media_url %}/themes/{% theme %}/button/delete.gif" alt="删除"></a>
+			</td>
+		</tr>
+{% endfor %}
+{% if results_per_page %}
+{% load repeat %}{% repeat results_per_page object_list|length %}<tr>
+	<td colspan="5">&nbsp;</td>
+</tr>
+{% endrepeat %}
+{% endif %}
+	</tbody>
+</table>
+{% endif %}
+{% endblock %}

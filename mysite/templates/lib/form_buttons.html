@@ -1,7 +1,7 @@
 {% load i18n %}
 <input type="submit" id="formSubmit" value="{% trans 'Submit' %}" name="submit"/>
 <input type="button" id="formReset" value="{% trans 'Reset' %}" name="formReset" onclick="Mpp.Common.resetConfirm(this.form)"/>
-{% if display_cancel and meta.HTTP_REFERER %}
+{% if display_cancel and request.META.HTTP_REFERER %}
 <input type="button" id="formCancel" value="{% trans 'Cancel' %}" name="cancel" onclick="Mpp.Common.cancelConfirm({{ submit_times }})"/>
 <input type="hidden" name="display_cancel" value="true"/>
 {% else %}
