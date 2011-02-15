@@ -1,10 +1,10 @@
-{% load i18n %}
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}{{entry.title}}{% endblock %}
 {% block content %}
 <h1>{{entry.title}}</h1>
 
 {{entry.description}}
 <br />
-<a href="{{entry.link}}">{% trans "Please click here to visit full aricle." %}</a>
+<a href="{{entry.link}}" target="_blank">{% trans "Please click here to visit full aricle." %}</a>
 {% endblock %}

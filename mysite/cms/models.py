@@ -77,3 +77,9 @@ class Article(models.Model):
         )
     def __unicode__(self):
         return self.title
+
+def get_category_single_article(category_id):
+    try:
+        return Article.objects.filter(category=category_id).order_by('-setTop','-lastModified')[0]
+    except IndexError:
+        return None

@@ -11,7 +11,7 @@ class Page(object):
         apps = []
         for provider in self.providers:
             apps.extend(provider.getApplications());
-        # TODO reorder
+        apps.sort(lambda x,y: cmp(x.getSeqNum(), y.getSeqNum()))
         return apps
 
 class Provider(object):

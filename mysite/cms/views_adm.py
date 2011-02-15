@@ -8,9 +8,11 @@ from django.conf import settings
 from django import forms
 from django.contrib.auth.decorators import login_required,permission_required
 from django.core.validators import URLValidator
+
 from templatetags import title_field_html
 
 from models import Category,Article,get_category_nex_seq_num
+
 # TODO check repeated name when save record
 class CategoryForm(forms.ModelForm):
     class Meta:

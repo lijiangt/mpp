@@ -4,7 +4,7 @@
 <h1>{{feed.title}}</h1>
 <ul>
 {% for entry in entries %}
-<li><a href="feed_entry?link={{entry.link}}">{{entry.title}}</a></li>
+<li><a href="./{{entry.url_hash}}">{{entry.title}}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}

@@ -11,13 +11,17 @@ Mpp.Event.attachAfter(window,'onload',function(){
 	var form = document.forms['form'];
 	var type = form.elements['type']
 	type.onchange = function(){
-		var value = type.options[type.selectedIndex].value;
-		if(!value || value == 60 || value == 70){
-			form.elements['url'].parentNode.parentNode.style.display='';
-		}else{
-			form.elements['url'].parentNode.parentNode.style.display='none';
-		}
+		try{
+			var value = type.options[type.selectedIndex].value;
+			var trNode = form.elements['url'].parentNode.parentNode;
+			if(!value || value == 60 || value == 70){
+				trNode.style.display='';
+			}else{
+				trNode.style.display='none';
+			}
+		}catch(e){}
 	}
+	type.onchange();
 	
 })
 </script>
