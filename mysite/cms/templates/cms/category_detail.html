@@ -28,6 +28,10 @@
 			<td>{{ category.name }}</td>
 		</tr>
 		<tr>
+			<th>{% trans 'Icon' %}:</th>
+			<td>{% if category.icon %}<img src="{% media_url %}{{ category.icon.url }}"/>{% endif %}</td>
+		</tr>
+		<tr>
 			<th>{% trans 'Type' %}:</th>
 			<td>
 			{% if category.type == 10 %}
@@ -53,16 +57,52 @@
 			{% endif %}
 			</td>
 		</tr>
+			{% if category.type == 60 %}
+		<tr>
+			<th>{% trans 'Redirection Link' %}:</th>
+			<td>{{ category.url }}</td>
+		</tr>
+			{% endif %}
+			{% if category.type == 70 %}
+		<tr>
+			<th>{% trans 'RSS' %} {% trans 'URL' %}:</th>
+			<td>{{ category.url }}</td>
+		</tr>
+			{% endif %}
 		<tr>
 			<th>{% trans 'Serial Number' %}:</th>
 			<td>{{ category.seqNum }}</td>
 		</tr>
+		<tr>
+			<th>{% trans 'Tag' %}:</th>
+			<td>{{ category.tags }}</td>
+		</tr>
+		<tr>
+			<th>{% trans 'Created Time' %}:</th>
+			<td>{{ category.created }}</td>
+		</tr>
+		<tr>
+			<th>{% trans 'Last Modified Time' %}:</th>
+			<td>{{ category.lastModified }}</td>
+		</tr>		
 	</tbody>
 </table>
 {% if category.type == 20 or category.type == 30 or category.type == 40 or category.type == 50 %}
-<a href="{{category.id}}/!edit">发布文章</a>
+<a href="{{category.id}}/!edit">
+{% if category.type == 50 %}
+添加链接
+{% else %}
+发布文章
+{% endif %}
+</a>
 <table class="main" summary="List Table">
-	<caption>文章列表</caption>
+	<caption>
+{% if category.type == 50 %}
+链接列表
+{% else %}
+文章列表
+{% endif %}	
+</caption>
 	<thead>
 		<th width="30">序号</th>
 		<th>{% title_field_html "title" "Title" %}</th>

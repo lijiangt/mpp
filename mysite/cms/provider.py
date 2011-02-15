@@ -1,4 +1,4 @@
-from models import Category
+from models import get_category_by_tag
 
 class CmsProvider(object):
     def __init__(self,**kwargs):
@@ -6,4 +6,4 @@ class CmsProvider(object):
         self.page = kwargs['page']
         
     def getApps(self):
-        return Category.objects.filter(tags__contains=',%s,'%self.page).order_by('-seqNum')
+        return get_category_by_tag(self.page)

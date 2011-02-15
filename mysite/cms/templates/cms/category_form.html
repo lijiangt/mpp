@@ -4,9 +4,27 @@
 {% load media %}
 {% load theme %}
 {% block title %}编辑类别{% endblock %}
+{% block extrahead %}
+{% include "include/js_onbeforeunload.html" %} 
+<script type="text/javascript">
+Mpp.Event.attachAfter(window,'onload',function(){
+	var form = document.forms['form'];
+	var type = form.elements['type']
+	type.onchange = function(){
+		var value = type.options[type.selectedIndex].value;
+		if(!value || value == 60 || value == 70){
+			form.elements['url'].parentNode.parentNode.style.display='';
+		}else{
+			form.elements['url'].parentNode.parentNode.style.display='none';
+		}
+	}
+	
+})
+</script>
+{% endblock extrahead %}
 {% block content %}
-<form name="form" action="./{{ id }}" method="POST" onsubmit="return true;">{% csrf_token %}
-<input type="hidden" name="submit_times" value="{{ submit_times }}"/>
+<form enctype="multipart/form-data" name="form" action="./{{ id }}" method="POST" onsubmit="Mpp.Common.emptyOnUnload();Mpp.Common.disableSubmit();return true;">
+{% csrf_token %}
 <input type="hidden" name="ext_query_str" value="{{ ext_query_str }}"/>
 {% if id %}
 <input type="hidden" name="id" value="{{ id }}"/>
@@ -15,13 +33,17 @@
 <table class="main" summary="Edit Table">
 <caption>编辑类别</caption>
 <thead>
+<tr>
 <th colspan="2">
 </th>
+</tr>
 </thead>
 <tfoot>
+<tr>
 <th colspan="2">
 {% include "lib/form_buttons.html" %} 
 </th>
+</tr>
 </tfoot>
 <tbody>
 {{ form.as_table }}

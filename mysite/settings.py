@@ -114,7 +114,11 @@ INSTALLED_APPS = (
 
 USE_L10N = True
 CATEGORY_ICON_PATH='icon/%Y/%j'
+CATEGORY_DEFAULT_ICON_PATH=MEDIA_URL+'/icon/default.png'
 ARTICLE_PIC_PATH='pic/%Y/%j'
+LOGIN_REDIRECT_URL='/cms/'
+LOGIN_URL = '/accounts/login'
+LOGOUT_REDIRECT_URL=LOGIN_URL
 
 gettext_noop = lambda s: s
 

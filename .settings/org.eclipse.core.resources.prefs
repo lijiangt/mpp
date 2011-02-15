@@ -1,5 +1,6 @@
-#Thu Jan 27 21:05:15 CST 2011
+#Tue Feb 15 13:36:31 CST 2011
 eclipse.preferences.version=1
+encoding//mysite/cms/views_adm.py=utf-8
 encoding//mysite/common/middleware.py=utf-8
 encoding//mysite/templatetags/title_field_html.py=utf-8
 encoding/<project>=UTF-8

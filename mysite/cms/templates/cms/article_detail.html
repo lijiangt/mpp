@@ -4,14 +4,26 @@
 {% load ext_query_string %}
 {% load media %}
 {% load theme %}
-{% block title %}查看文章{% endblock %}
+{% block title %}
+{% if object.category.type == 50 %}
+查看链接
+{% else %}
+查看文章
+{% endif %}
+{% endblock %}
 {% block content %}
 <form name="deleteForm" action="" method="POST">{% csrf_token %}
 <input type="hidden" name="__http_method" value="DELETE"/>
 <input type="hidden" name="ext_query_str" value="{% ext_query_raw_string %}"/>
 </form>
 <table class="main" summary="view Table">
-	<caption>文章详细信息</caption>
+	<caption>
+	{% if object.category.type == 50 %}
+查看链接
+{% else %}
+查看文章
+{% endif %}
+	</caption>
 	<thead>
 		<tr>
 			<th colspan="2"></th>
@@ -32,6 +44,10 @@
 			<td>{{ object.title }}</td>
 		</tr>
 		<tr>
+			<th>{% trans 'Category' %}:</th>
+			<td><a href="../{{ object.category.id }}">{{ object.category.name }}</a></td>
+		</tr>		
+		<tr>
 			<th>{% trans 'Type' %}:</th>
 			<td>
 			{% if object.type == 10 %}
@@ -45,9 +61,41 @@
 			{% endif %}
 			</td>
 		</tr>
+		{%if object.pic %}
+			<th>{% trans 'Picture' %}:</th>
+			<td><img src="{% media_url %}{{ object.pic.url }}"/></td>
+		{% endif %}
+			{% if object.type == 30 %}
+		<tr>
+			<th>{% trans 'Url' %}:</th>
+			<td>{{ object.url }}</td>
+		</tr>
+			{% else %}
+		<tr>
+			<th>{% trans 'Content' %}:</th>
+			<td>{{ object.content }}</td>
+		</tr>		
+			{% endif %}
+		<tr>
+			<th>{% trans 'Set Top' %}:</th>
+			<td>{% if object.setTop == 2 %}
+				{% trans 'Set Top' %}
+			{% else %}
+				{% trans 'Normal' %}
+			{% endif %}
+			</td>
+		</tr>
 		<tr>
 			<th>{% trans 'View Times' %}:</th>
 			<td>{{ object.viewTimes }}</td>
+		</tr>
+		<tr>
+			<th>{% trans 'Created Time' %}:</th>
+			<td>{{ object.created }}</td>
+		</tr>
+		<tr>
+			<th>{% trans 'Last Modified Time' %}:</th>
+			<td>{{ object.lastModified }}</td>
 		</tr>
 	</tbody>
 </table>

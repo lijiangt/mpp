@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 #from django.utils.translation import ugettext as _
 from django.utils.translation import ugettext_lazy as _
+from django.db.models import Max
 
 class Category(models.Model):
     TYPE_CHOICES = (
@@ -21,20 +22,32 @@ class Category(models.Model):
     created=models.DateTimeField(_('Created Time'),auto_now_add=True)
     lastModified=models.DateTimeField(_('Last Modified Time'),auto_now=True)
 #    father=models.ForeignKey('self',verbose_name=_('Father Category'))
-    tags=models.CharField(_('Tag'),default=',home,',max_length=255,blank=True, null=True)
+    tags=models.CharField(_('Tag'),default=' home,',max_length=255,blank=True, null=True)
     class Meta:
         verbose_name = _('Category')
         verbose_name_plural = _('Category')
+        permissions = (
+            ("can_admin", "admin for cms module"),
+        )
     def __unicode__(self):
         return self.name
     def getIconUrl(self):
-        return self.icon.url
+        if self.icon:
+            return settings.MEDIA_URL+self.icon.url
+        else:
+            return settings.CATEGORY_DEFAULT_ICON_PATH
     def getName(self):
         return self.name;
     def getUrl(self):
         return '/content/%s/'%self.id
     def getSeqNum(self):
         return self.seqNum
+    
+def get_category_nex_seq_num():
+    return Category.objects.all().aggregate(Max('seqNum')).get("seqNum__max",49) +1
+
+def get_category_by_tag(page):
+    return Category.objects.filter(tags__contains=' %s,'%page).order_by('-seqNum')
 
 class Article(models.Model):
     TYPE_CHOICES = (
@@ -49,16 +62,18 @@ class Article(models.Model):
     title = models.CharField(_('Title'),max_length=255)
     content = models.TextField(_('Content'))
     pic=models.ImageField(_('Picture'),upload_to=settings.ARTICLE_PIC_PATH,blank=True, null=True)
-    type=models.SmallIntegerField(_('Type'),choices=TYPE_CHOICES)
+    type=models.SmallIntegerField(_('Type'),choices=TYPE_CHOICES,editable=False)
     category=models.ForeignKey(Category,verbose_name=_('Category'),editable=False)
     viewTimes=models.BigIntegerField(_('View Times'),default=0,editable=False)
     posted=models.DateTimeField(_('Publish Time'),auto_now_add=True)
     lastModified=models.DateTimeField(_('Last Modified Time'),auto_now=True)
-    setTop=models.SmallIntegerField(_('Set Top'),choices=SET_TOP_CHOICES,default=0)
     url=models.URLField(_('URL'),max_length=255,blank=True, null=True)
+    setTop=models.SmallIntegerField(_('Set Top'),choices=SET_TOP_CHOICES,default=0)
     class Meta:
         verbose_name = _('Article')
         verbose_name_plural = _('Article')
         unique_together = ("title", "category")
+        permissions = (
+        )
     def __unicode__(self):
         return self.title
