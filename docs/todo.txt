@@ -2,3 +2,9 @@
 实现feedback模块
 实现二维码图标显示
 提供多种语言版本
+
+
+
+
+rss加缓存及编码处理 参考： http://obmem.info/?p=717
+session后端调整

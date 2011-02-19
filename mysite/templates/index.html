@@ -1,10 +1,8 @@
-{% extends "base.html" %}
+{% extends "base_mobile.html" %}
 {% block title %}{{page.local_name}}{% endblock %}
 {% block content %}
 <h1>{{page.local_name}}</h1>
-<ul>
 {% for app in apps %}
-<li><a href="{{app.getUrl}}"><img src="{{app.getIconUrl}}"/>{{app.getName}}</a></li>
+<a href="{{app.getUrl}}" class="app"><img src="{{app.getIconUrl}}" width="50" height="50" alt="width="50" height="50""/>{{app.getName}}</a>
 {% endfor %}
-</ul>
 {% endblock %}

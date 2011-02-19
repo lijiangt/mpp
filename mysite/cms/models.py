@@ -44,7 +44,7 @@ class Category(models.Model):
         return self.seqNum
     
 def get_category_nex_seq_num():
-    return Category.objects.all().aggregate(Max('seqNum')).get("seqNum__max",49) +1
+    return Category.objects.all().aggregate(Max('seqNum')).get("seqNum__max",40) +10
 
 def get_category_by_tag(page):
     return Category.objects.filter(tags__contains=' %s,'%page).order_by('-seqNum')
