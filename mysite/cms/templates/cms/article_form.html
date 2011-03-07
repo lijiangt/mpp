@@ -12,6 +12,7 @@
 {% endblock %}
 {% block extrahead %}
 {% include "include/js_onbeforeunload.html" %} 
+{% include "include/js_xheditor.html" %} 
 {% endblock extrahead %}
 {% block content %}
 <form enctype="multipart/form-data" name="form" action="./{{ id }}" method="POST" onsubmit="Mpp.Common.emptyOnUnload();Mpp.Common.disableSubmit();return true;">

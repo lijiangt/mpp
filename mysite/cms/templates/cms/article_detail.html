@@ -73,7 +73,7 @@
 			{% else %}
 		<tr>
 			<th>{% trans 'Content' %}:</th>
-			<td>{{ object.content }}</td>
+			<td>{{ object.content|safe }}</td>
 		</tr>		
 			{% endif %}
 		<tr>
