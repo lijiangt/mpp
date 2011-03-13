@@ -25,7 +25,7 @@ class Category(models.Model):
     tags=models.CharField(_('Tag'),default=' home,',max_length=255,blank=True, null=True)
     class Meta:
         verbose_name = _('Category')
-        verbose_name_plural = _('Category')
+        verbose_name_plural = _('Categories')
         permissions = (
             ("can_admin", "admin for cms module"),
         )
@@ -74,7 +74,7 @@ class Article(models.Model):
     setTop=models.SmallIntegerField(_('Set Top'),choices=SET_TOP_CHOICES,default=0)
     class Meta:
         verbose_name = _('Article')
-        verbose_name_plural = _('Article')
+        verbose_name_plural = _('Articles')
         unique_together = ("title", "category")
         permissions = (
         )

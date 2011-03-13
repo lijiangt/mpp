@@ -110,6 +110,7 @@ INSTALLED_APPS = (
 #    'polls',
     'cms',
     'mysite',
+    'feedback',
 )
 
 USE_L10N = True

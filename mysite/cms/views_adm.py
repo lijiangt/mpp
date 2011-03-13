@@ -137,16 +137,20 @@ def category_detail(request,id):
     raise Http404
 
 class NormalArticleForm(forms.ModelForm):
-    content=forms.CharField(widget=forms.Textarea(attrs={'class':'xheditor'}))
     class Meta:
         model = Article
         exclude = ('url',)
+        widgets = {
+            'content': forms.Textarea(attrs={'class':'xheditor'}),
+        }
 class PictureArticleForm(forms.ModelForm):
-    content=forms.CharField(widget=forms.Textarea(attrs={'class':'xheditor'}))
     pic = forms.ImageField(required=True,label=_('Picture'))
     class Meta:
         model = Article
         exclude = ('url',)
+        widgets = {
+            'content': forms.Textarea(attrs={'class':'xheditor'}),
+        }
 class LinkArticleForm(forms.ModelForm):
     url=forms.URLField(required=True,label=_('URL'),min_length=4,max_length=255)
     class Meta:

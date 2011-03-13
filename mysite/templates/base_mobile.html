@@ -1,22 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% load media %}
+{% load theme %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
         <title>{% block title %}Page Title{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="shortcut icon" href="/s/favicon.ico" /> 
-</head>
+        {% include "include/js_jqtouch.html" %} 
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'jqtouch.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                statusBar: 'black',
+                preloadImages: [
+                    '{% media_url %}/themes/{% theme %}/back_button.png',
+                    '{% media_url %}/themes/{% theme %}/back_button_clicked.png',
+                    '{% media_url %}/themes/{% theme %}/button_clicked.png',
+                    '{% media_url %}/themes/{% theme %}/grayButton.png',
+                    '{% media_url %}/themes/{% theme %}/whiteButton.png',
+                    '{% media_url %}/themes/{% theme %}/loading.gif'
+                    ]
+            });
+            // Some sample Javascript functions:
+            $(function(){
+                // Show a swipe event on swipe test
+                $('#swipeme').swipe(function(evt, data) {                
+                    $(this).html('You swiped <strong>' + data.direction + '</strong>!');
+                });
+                $('a[target="_blank"]').click(function() {
+                    if (confirm('This link opens in a new window.')) {
+                        return true;
+                    } else {
+                        $(this).removeClass('active');
+                        return false;
+                    }
+                });
+                // Page animation callback events
+                $('#pageevents').
+                    bind('pageAnimationStart', function(e, info){ 
+                        $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
+                    }).
+                    bind('pageAnimationEnd', function(e, info){
+                        $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
+                    });
+                // Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
+                $('#callback').bind('pageAnimationEnd', function(e, info){
+                    if (!$(this).data('loaded')) {                      // Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
+                        $(this).append($('<div>Loading</div>').         // Append a placeholder in case the remote HTML takes its sweet time making it back
+                            load('ajax.html .info', function() {        // Overwrite the "Loading" placeholder text with the remote HTML
+                                $(this).parent().data('loaded', true);  // Set the 'loaded' var to true so we know not to re-load the HTML next time the #callback div animation ends
+                            }));
+                    }
+                });
+                // Orientation callback event
+                $('body').bind('turn', function(e, data){
+                    $('#orient').html('Orientation: ' + data.orientation);
+                });
+            });
+        </script>
+        <style type="text/css" media="screen">
+            body.fullscreen #home .info {
+                display: none;
+            }
+            #about {
+                padding: 100px 10px 40px;
+                text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0;
+                font-size: 13px;
+                text-align: center;
+                background: #161618;
+            }
+            #about p {
+                margin-bottom: 8px;
+            }
+            #about a {
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        </style>
+        {% block extrahead %}{% endblock extrahead %}
+    </head>
+    <body>
+        <div id="about" class="selectable"> 
+                <p></p> 
+                <p><strong>北京邮电大学移动门户</strong><br />
+              <p>北京邮电大学教育技术研究所研制开发</p>
+                <p><br /><br /><a href="#" class="grayButton goback">Close</a></p> 
+        </div>
+{% block extracontent %}
 
-<body>
-<div id="container"> 
-        {% block content %}{% endblock %}
-</div>
-<div id="footer"> 
-	
-</div> 
-</body>
+{% endblock %}
+        <div id="home" class="current">
+{% block content %}
+
+{% endblock %}
+            <ul class="individual">
+                <li><a href="/feedback/feature-suggestions/" target="_webapp">建议一个新功能</a></li>
+                <li><a href="/feedback/" target="_webapp">反馈</a></li>
+            </ul>
+            <div class="info">
+                <p>北京邮电大学 版权所有 | 北京邮电大学教育技术研究所研制开发</p>
+            </div>
+        </div>
+    </body>
 </html>
-
