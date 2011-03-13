@@ -1,9 +1,50 @@
 {% extends "base_mobile.html" %}
+{% load ifmod %}
 {% block title %}
 {{page.local_name}}
 {% endblock %}
 
 {% block content %}
+		<div class="toolbar" style="vertical-align: middle;">
+			<h1 style="padding-left: 15px;"><span class="thick">{{page.local_name}}</span></h1>
+			 <a class="button slideup" id="infoButton" href="#about">关于</a>
+		</div>
+
+		<div>
+			<div>
+			  <table cellpadding="0" cellspacing="0" border="0" id="homegrid">
+{% for app in apps %}
+{% ifmod forloop.counter0 4 0 %}
+		<tr>
+{% endifmod %}
+<td> 
+	<a href="{{app.getUrl}}" class="flip" target="_webapp"><img class="touch dropshadow" src="{{app.getIconUrl}}" id="img_{{ forloop.counter0 }}" width="56" height="56" alt="{{app.getName}}" /><br />{{app.getName}}</a> 
+</td>
+{% ifmod forloop.counter0 4 3 %}
+		</tr>
+{% endifmod %}
+{% endfor %}
+{% ifmod appSize 4 1 %}
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+{% endifmod %}
+{% ifmod appSize 4 2 %}
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+{% endifmod %}
+{% ifmod appSize 4 3 %}
+<td>&nbsp;</td>
+</tr>
+{% endifmod %}
+</table>
+			</div>
+		</div>
+
+
+<!-- 
             <div class="toolbar">
                 <h1>{{page.local_name}}</h1>
                 <a class="button slideup" id="infoButton" href="#about">关于</a>
@@ -13,4 +54,5 @@
                 <li class="forward"><a target="_webapp" href="{{app.getUrl}}">{{app.getName}}</a></li>
 			{% endfor %}
             </ul>
+-->
 {% endblock %}

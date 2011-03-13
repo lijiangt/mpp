@@ -8,4 +8,5 @@ def index(request):
     return render_to_response('index.html', {
                 'page':page,
                 'apps':apps,
+                'appSize':len(apps),
     },context_instance=RequestContext(request))
