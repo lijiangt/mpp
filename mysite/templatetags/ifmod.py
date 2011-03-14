@@ -17,8 +17,6 @@ class IfModNode(template.Node):
 @register.tag
 def ifmod(parser, token):
     nodelist = parser.parse(('endifmod',))
-    print nodelist
-    print token
     parser.delete_first_token()
     try:
         # split_contents() knows not to split quoted strings.

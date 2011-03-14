@@ -1,4 +1,9 @@
+{% load jsinclude %}
+{% jsinclude jquery %}
+{% include "include/js_jquery.html" %}
+{% endjsinclude %}
+{% jsincludeorigin jqtouch %}
 <style type="text/css" media="screen">@import "{% load media %}{% media_url %}/jqtouch/jqtouch.min.css";</style>
 <style type="text/css" media="screen">@import "{% load theme %}{% media_url %}/jqtouch/jqt/theme.min.css";</style>
-{% include "include/js_jquery.html" %} 
 <script src="{% load media %}{% media_url %}/jqtouch/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
+{% endjsincludeorigin %}

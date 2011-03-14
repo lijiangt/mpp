@@ -1,1 +1,7 @@
+{% load jsinclude %}
+{% jsinclude common %}
+{% include "include/js_common.html" %}
+{% endjsinclude %}
+{% jsincludeorigin onbeforeunload %}
 <script type="text/javascript" src="{% load media %}{% media_url %}/js/onbeforeunload.js"></script>
+{% endjsincludeorigin %}
