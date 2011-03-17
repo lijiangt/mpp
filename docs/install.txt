@@ -2,7 +2,9 @@
 Python version 2.4 or higher
 
 Django 1.2.4 or higher
-
+依赖包：
+sudo apt-get install python-mysqldb
+sudo apt-get install python-imaging 
 安装feedparser和chardet
 sudo easy_install feedparser
 sudo easy_install chardet
