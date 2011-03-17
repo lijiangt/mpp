@@ -11,11 +11,6 @@ DEFAULT_VALUE = {
                      'telephone':12,
                      'idnum':18,
                      }
-
-class Staff(models.Model):
-    """职员的信息，应该从其他数据库导入，暂时使用"""
-    name = models.CharField(_(u'Building'),max_length=DEFAULT_VALUE['namelength'])
-    idnum = models.CharField(_(u'IDnum'),max_length=DEFAULT_VALUE['idnum'],null=True,blank=True)
     
 class Building(models.Model):
     """学校各个教学楼等"""
@@ -37,8 +32,7 @@ class Department(models.Model):
     website = models.URLField(_(u'MainPageUrl'),null=True,blank=True)
 
     building = models.ForeignKey(Building)
-    director = models.ForeignKey(Staff)
-
+    
     def __init__(self):
         self.worktime = DEFAULT_VALUE['worktime']
     

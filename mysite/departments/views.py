@@ -2,7 +2,7 @@
 from django.shortcuts import HttpResponseRedirect,Http404,render_to_response,get_object_or_404
 from django.template import RequestContext
 
-from models import Department,SmallDepartment,Building,Staff
+from models import Department,SmallDepartment,Building
 
 def department_detail(request,id=None):
     department = get_object_or_404(Department,pk=id)
