@@ -111,6 +111,7 @@ INSTALLED_APPS = (
     'cms',
     'mysite',
     'feedback',
+    'departments',
 )
 
 USE_L10N = True
