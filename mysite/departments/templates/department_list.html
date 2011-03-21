@@ -1,0 +1,9 @@
+{% extends "base_mobile.html" %}
+
+{% block content %}
+             <ul class="rounded">
+            {% for department in departments %}
+                <li class="forward"><a target="_webapp" href="{{department.id}}">{{department.name}}</a></li>
+			{% endfor %}
+            </ul>          
+{% endblock %}

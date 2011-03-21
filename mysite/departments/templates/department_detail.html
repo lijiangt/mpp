@@ -1,0 +1,29 @@
+{% extends "base_mobile.html" %}
+{% block title %}
+{{department.name}}
+{% endblock %}
+
+{% block content %}
+        <div class="toolbar">
+            	<a href="/#home" target="_webapp" class="button leftButton">主页</a> 
+                <h1>{{department.name}}</h1>
+                <a class="button slideup" id="infoButton" href="#about">关于</a>
+            </div>
+        <div class="info">
+            办公室：{{department.building}}－{{department.room}}房间 <br>
+            电话：{{department.telephone}} <br>
+            
+            {%if subdepartments%}
+            {% for subdepartment in subdepartments %}
+                <li>{{subdepartment.name}}在{{subdepartment.room}}房间，电话：{{subdepartment.telephone}}</li>
+			{% endfor %}
+            {%endif%}   
+            
+            </div>
+            
+        <div class="info">
+               {{department.description|safe}}
+               
+            </div>
+               
+{% endblock %}
