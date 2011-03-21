@@ -22,9 +22,9 @@ msgstr ""
 msgid "Home Page"
 msgstr "首页"
 
-#: setttings.py:106
-msgid "Usefull Tools"
-msgstr "常用工具"
+#: setttings.py:138
+msgid "page-home"
+msgstr "page-home-cn"
 
 #: cms/models.py:9
 msgid "Article List"

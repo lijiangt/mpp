@@ -134,6 +134,18 @@ DEFAULT_THEME = 'default'
 EXTEND_HTTP_METHOD='__http_method'
 from base import Page,Provider
 PAGES = {
-    'home':Page('Home Page',u'Home',providers=[Provider('cms.provider.CmsProvider',page='home')]),
-    'tools':Page('Usefull Tools',u'Tools',providers=[Provider('cms.provider.CmsProvider',page='tool')]),
+    'page-home-cn':Page('Home Page',providers=[
+           Provider('cms.app.CmsApp',app_label='bupt_news'),
+           Provider('cms.app.CmsApp',app_label='school_info'),
+           Provider('cms.app.CmsApp',app_label='fast_track'),
+           Provider('cms.app.CmsApp',app_label='bus_info'),
+           Provider('cms.app.CmsApp',app_label='security_info'),
+                                               ]),
+    'page-home':Page('Home Page',providers=[
+            Provider('cms.app.CmsApp',app_label='bupt_news'),
+            Provider('cms.app.CmsApp',app_label='school_info'),
+            Provider('cms.app.CmsApp',app_label='fast_track'),
+            Provider('cms.app.CmsApp',app_label='bus_info'),
+            Provider('cms.app.CmsApp',app_label='security_info'),
+                                            ]),
 }

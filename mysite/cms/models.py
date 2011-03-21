@@ -6,7 +6,7 @@ from django.db.models import Max
 
 class Category(models.Model):
     TYPE_CHOICES = (
-#        (10, _('Father Category')),
+        (10, _('Father Category')),
         (20, _('Article List')),
         (30, _('Article With Picture List')),
         (40, _('Single Article')),
@@ -18,11 +18,12 @@ class Category(models.Model):
     icon=models.ImageField(_('Icon'),upload_to=settings.CATEGORY_ICON_PATH,blank=True, null=True)
     type=models.SmallIntegerField(_('Type'),choices=TYPE_CHOICES)
     url=models.URLField(_('URL'),max_length=255,blank=True, null=True,help_text=u'%s, %s'%(_('Redirection Link'),_('RSS')))
-    seqNum=models.IntegerField(_('Serial Number'),default=50,unique=True)
+#    seqNum=models.IntegerField(_('Serial Number'),default=50,unique=True)
     created=models.DateTimeField(_('Created Time'),auto_now_add=True)
     lastModified=models.DateTimeField(_('Last Modified Time'),auto_now=True)
 #    father=models.ForeignKey('self',verbose_name=_('Father Category'))
-    tags=models.CharField(_('Tag'),default=' home,',max_length=255,blank=True, null=True)
+#    tags=models.CharField(_('Tag'),default=' home,',max_length=255,blank=True, null=True)
+    appLabel = models.CharField(_('Application Label'),max_length=30,blank=True, null=True)
     class Meta:
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
@@ -40,17 +41,24 @@ class Category(models.Model):
         return self.name;
     def getUrl(self):
         return '/content/%s/'%self.id
-    def getSeqNum(self):
-        return self.seqNum
+#    def getSeqNum(self):
+#        return self.seqNum
     
-def get_category_nex_seq_num():
-    maxNum = Category.objects.all().aggregate(Max('seqNum')).get("seqNum__max",40)
-    if maxNum:
-        return maxNum+10
-    return 50
-
-def get_category_by_tag(page):
-    return Category.objects.filter(tags__contains=' %s,'%page).order_by('-seqNum')
+#def get_category_nex_seq_num():
+#    maxNum = Category.objects.all().aggregate(Max('seqNum')).get("seqNum__max",40)
+#    if maxNum:
+#        return maxNum+10
+#    return 50
+#
+#def get_category_by_tag(page):
+#    return Category.objects.filter(tags__contains=' %s,'%page).order_by('-seqNum')
+def get_category_by_app_label(app_label):
+    l = Category.objects.filter(appLabel__exact=app_label)
+    assert len(l) <=1,'appLabel repeat.'
+    if len(l) == 1:
+        return l[0]
+    else:
+        return None
 
 class Article(models.Model):
     TYPE_CHOICES = (
