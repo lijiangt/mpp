@@ -4,7 +4,6 @@ from django.conf import settings
 from django.utils.translation import ugettext as _
 
 def index(request):
-    print _('page-home')
     page = settings.PAGES.get(_('page-home'),None)
     if not page:
         page = settings.PAGES.get(_('page-home-cn'),None)

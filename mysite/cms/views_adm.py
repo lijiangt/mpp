@@ -11,7 +11,7 @@ from django.core.validators import URLValidator
 
 from templatetags import title_field_html
 
-from models import Category,Article,get_category_nex_seq_num
+from models import Category,Article
 
 # TODO check repeated name when save record
 class CategoryForm(forms.ModelForm):
@@ -25,15 +25,15 @@ class CategoryForm(forms.ModelForm):
             return url
         else:
             return None
-    def clean_tags(self):
-        tags = self.cleaned_data.get('tags',None)
-        if tags:
-            tags = tags.strip()
-            if tags:
-                if  not tags.endswith(','):
-                    tags = tags + ','
-                tags = tags.replace(',',', ').replace(',  ',', ')
-                return ' '+ tags
+#    def clean_tags(self):
+#        tags = self.cleaned_data.get('tags',None)
+#        if tags:
+#            tags = tags.strip()
+#            if tags:
+#                if  not tags.endswith(','):
+#                    tags = tags + ','
+#                tags = tags.replace(',',', ').replace(',  ',', ')
+#                return ' '+ tags
 
 @login_required
 @permission_required('cms.can_admin')
@@ -50,7 +50,7 @@ def category_edit(request):
                 'id':             id,
                 },context_instance=RequestContext(request))
     else:
-        f = CategoryForm(initial={'seqNum': get_category_nex_seq_num()})
+        f = CategoryForm()
         return render_to_response('cms/category_form.html', {
                 'form':            f,
                 "submit_times":   -1,
@@ -65,7 +65,7 @@ def category_index(request):
         page = int(request.GET.get('page',1))
         order_str = title_field_html.get_order_str(request)
         if not order_str:
-            order_str = '-seqNum'
+            order_str = '-lastModified'
         queryset = Category.objects.all().order_by(order_str)
         return list_detail.object_list(request, 
                    queryset = queryset,

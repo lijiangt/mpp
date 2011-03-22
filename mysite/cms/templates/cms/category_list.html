@@ -18,7 +18,7 @@
 			<th width="30">序号</th>
 			<th>{% title_field_html "name" "Name" %}</th>
 			<th width="120">{% title_field_html "type" "Type" %}</th>
-			<th width="120">{% title_field_html "seqNum" "Serial Number" -%}</th>
+			<th width="120">{% title_field_html "appLabel" "Application Label" %}</th>
 			<th>操作</th>
 		</tr>
 	</thead>
@@ -65,7 +65,7 @@
 			{% endif %}
 			</td>
 			<td>
-			{{object.seqNum}}
+			{{object.appLabel}}
 			</td>
 			<td>
 			<a href="/cms/{{ object.id }}{% ext_query_string ? %}" title="查看"><img src="{% media_url %}/themes/{% theme %}/button/view.gif" alt="查看"></a>

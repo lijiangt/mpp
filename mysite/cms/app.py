@@ -5,21 +5,19 @@ class CmsApp(object):
         self.kwargs = kwargs;
         app_label = kwargs.get('app_label',None)
         assert app_label,'CmsApp class requires app_label kwargs argument.'
-        self.category = get_category_by_app_label(app_label)
+        category = get_category_by_app_label(app_label)
+        if category:
+            self.iconUrl = category.getIconUrl()
+            self.name = category.getName()
+            self.url = category.getUrl()
+        else:
+            self.iconUrl = None
+            self.name = None
+            self.url = None
     
     def getIconUrl(self):
-        if self.category:
-            return self.category.getIconUrl()
-        else:
-            return None
+        return self.iconUrl
     def getName(self):
-        print self.category
-        if self.category:
-            return self.category.getName()
-        else:
-            return None
+        return self.name
     def getUrl(self):
-        if self.category:
-            return self.category.getUrl()
-        else:
-            return None
+        return self.url
