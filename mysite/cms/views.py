@@ -9,7 +9,13 @@ from models import Category,Article,get_category_single_article
 
 def category_view(request,id=None):
     category = get_object_or_404(Category,pk=id)
-    if category.type == 40:
+    if category.type == 10:
+        categories = Category.objects.filter(father=category.id).order_by('-lastModified')
+        return render_to_response('content/category.html', {
+                'category':category,
+                'categories':categories,
+    },context_instance=RequestContext(request))
+    elif category.type == 40:
         article = get_category_single_article(category.id)
         if not article:
             raise Http404

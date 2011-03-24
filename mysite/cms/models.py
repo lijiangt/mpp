@@ -21,9 +21,10 @@ class Category(models.Model):
 #    seqNum=models.IntegerField(_('Serial Number'),default=50,unique=True)
     created=models.DateTimeField(_('Created Time'),auto_now_add=True)
     lastModified=models.DateTimeField(_('Last Modified Time'),auto_now=True)
-#    father=models.ForeignKey('self',verbose_name=_('Father Category'))
+    father=models.ForeignKey('self',verbose_name=_('Father Category'),blank=True, null=True)
 #    tags=models.CharField(_('Tag'),default=' home,',max_length=255,blank=True, null=True)
     appLabel = models.CharField(_('Application Label'),max_length=30,blank=True, null=True)
+    description = models.TextField(_('Description'),blank=True, null=True)
     class Meta:
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
@@ -59,6 +60,9 @@ def get_category_by_app_label(app_label):
         return l[0]
     else:
         return None
+#def get_father_cateogories():
+#    l = Category.objects.filter(type__exact=10)
+#    return ((c.id,c.name) for c in l)
 
 class Article(models.Model):
     TYPE_CHOICES = (

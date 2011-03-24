@@ -10,8 +10,16 @@
                 <a class="button slideup" id="infoButton" href="#about">关于</a>
             </div>
              <ul class="rounded">
-            {% for article in articles %}
-                <li class="forward"><a target="_webapp" href="{{article.id}}">{{article.title}}</a></li>
-			{% endfor %}
+            {% if category.type == 10 %}
+		            {% for c in categories %}
+		                <li class="forward"><a target="_webapp" href="/content/{{c.id}}/">{{c.name}}</a></li>
+					{% endfor %}
+            {% else %}
+	            {% for article in articles %}
+	                <li class="forward"><a target="_webapp" href="{{article.id}}">{{article.title}}</a></li>
+				{% endfor %}
+			{% endif %} 
+
+			
             </ul>          
 {% endblock %}

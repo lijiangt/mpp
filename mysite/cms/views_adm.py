@@ -15,8 +15,17 @@ from models import Category,Article
 
 # TODO check repeated name when save record
 class CategoryForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+#        category = kwargs.get('instance',None)
+#        if category:
+#            print category.id
+        self.base_fields['father'].queryset = Category.objects.filter(type__exact=10)
+        super(CategoryForm, self).__init__(*args, **kwargs)
     class Meta:
         model = Category
+        widgets = {
+            'description': forms.Textarea(attrs={'class':'xheditor'}),
+        }
     def clean_url(self):
         url = self.cleaned_data.get('url',None)
         type = self.cleaned_data.get('type',None)
