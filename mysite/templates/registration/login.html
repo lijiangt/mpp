@@ -22,5 +22,16 @@
 <input type="submit" value="login" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
-
+<form action="/i18n/setlang/" method="post">
+{% csrf_token %}
+<!-- 
+<input name="next" type="hidden" value="/next/page/" />
+ -->
+<select name="language">
+{% for lang in LANGUAGES %}
+<option value="{{ lang.0 }}">{{ lang.1 }}</option>
+{% endfor %}
+</select>
+<input type="submit" value="Go" />
+</form>
 {% endblock %}

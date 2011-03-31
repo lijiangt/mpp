@@ -81,6 +81,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -100,7 +101,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+#    'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     # Uncomment the next line to enable the admin:
@@ -113,6 +114,20 @@ INSTALLED_APPS = (
     'feedback',
     'departments',
 )
+SESSION_ENGINE='django.contrib.sessions.backends.cache'
+CACHES = {
+'default': {
+    'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    'LOCATION': 'unique-snowflake'
+    }
+}
+if not DEBUG:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': '127.0.0.1:11211',
+        }
+    }
 
 USE_L10N = True
 CATEGORY_ICON_PATH='icon/%Y/%j'
@@ -135,11 +150,11 @@ EXTEND_HTTP_METHOD='__http_method'
 from base import Page,Provider
 PAGES = {
     'page-home-cn':Page('Home Page',providers=[
-           Provider('cms.app.CmsApp',app_label='bupt_news'),
-           Provider('cms.app.CmsApp',app_label='school_info'),
-           Provider('cms.app.CmsApp',app_label='fast_track'),
-           Provider('cms.app.CmsApp',app_label='bus_info'),
-           Provider('cms.app.CmsApp',app_label='security_info'),
+           Provider('cms.app.CmsApp',app_label='bupt_news_cn'),
+           Provider('cms.app.CmsApp',app_label='school_info_cn'),
+           Provider('cms.app.CmsApp',app_label='fast_track_cn'),
+           Provider('cms.app.CmsApp',app_label='bus_info_cn'),
+           Provider('cms.app.CmsApp',app_label='security_info_cn'),
                                                ]),
     'page-home':Page('Home Page',providers=[
             Provider('cms.app.CmsApp',app_label='bupt_news'),

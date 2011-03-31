@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^$','views.index'),
+    (r'^i18n/', include('django.conf.urls.i18n')),
     (r'^i18n.js$', direct_to_template, {'template': 'js_i18n.html', 'mimetype':'text/javascript'}),
     (r'^accounts/login$', 'django.contrib.auth.views.login'),
     (r'^accounts/logout$', 'django.contrib.auth.views.logout',{'next_page':settings.LOGOUT_REDIRECT_URL}),
