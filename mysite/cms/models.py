@@ -15,7 +15,7 @@ class Category(models.Model):
         (70, _('RSS')),
     )
     name = models.CharField(_('Name'),max_length=30,unique=True)
-    icon=models.ImageField(_('Icon'),upload_to=settings.CATEGORY_ICON_PATH,blank=True, null=True)
+    icon=models.ImageField(_('Icon'),upload_to=settings.CATEGORY_ICON_PATH,blank=True, null=True,max_length=255)
     type=models.SmallIntegerField(_('Type'),choices=TYPE_CHOICES)
     url=models.URLField(_('URL'),max_length=255,blank=True, null=True,help_text=u'%s, %s'%(_('Redirection Link'),_('RSS')))
 #    seqNum=models.IntegerField(_('Serial Number'),default=50,unique=True)
@@ -76,7 +76,7 @@ class Article(models.Model):
     )
     title = models.CharField(_('Title'),max_length=255)
     content = models.TextField(_('Content'))
-    pic=models.ImageField(_('Picture'),upload_to=settings.ARTICLE_PIC_PATH,blank=True, null=True)
+    pic=models.ImageField(_('Picture'),upload_to=settings.ARTICLE_PIC_PATH,blank=True, null=True,max_length=255)
     type=models.SmallIntegerField(_('Type'),choices=TYPE_CHOICES,editable=False)
     category=models.ForeignKey(Category,verbose_name=_('Category'),editable=False)
     viewTimes=models.BigIntegerField(_('View Times'),default=0,editable=False)

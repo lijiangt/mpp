@@ -4,4 +4,9 @@
 {% endjsinclude %}
 {% jsincludeorigin xheditor %}
 <script type="text/javascript" src="{% load media %}{% media_url %}/xheditor/xheditor-zh-cn.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.xhe').xheditor({html5Upload:false,upImgUrl:"/xheditor/upload_image?"+Math.random()});
+})
+</script>
 {% endjsincludeorigin %}

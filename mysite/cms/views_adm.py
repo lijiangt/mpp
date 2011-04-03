@@ -24,7 +24,7 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         widgets = {
-            'description': forms.Textarea(attrs={'class':'xheditor'}),
+            'description': forms.Textarea(attrs={'class':'xhe'}),
         }
     def clean_url(self):
         url = self.cleaned_data.get('url',None)
@@ -150,7 +150,7 @@ class NormalArticleForm(forms.ModelForm):
         model = Article
         exclude = ('url',)
         widgets = {
-            'content': forms.Textarea(attrs={'class':'xheditor'}),
+            'content': forms.Textarea(attrs={'class':'xhe'}),
         }
 class PictureArticleForm(forms.ModelForm):
     pic = forms.ImageField(required=True,label=_('Picture'))
@@ -158,7 +158,7 @@ class PictureArticleForm(forms.ModelForm):
         model = Article
         exclude = ('url',)
         widgets = {
-            'content': forms.Textarea(attrs={'class':'xheditor'}),
+            'content': forms.Textarea(attrs={'class':'xhe'}),
         }
 class LinkArticleForm(forms.ModelForm):
     url=forms.URLField(required=True,label=_('URL'),min_length=4,max_length=255)

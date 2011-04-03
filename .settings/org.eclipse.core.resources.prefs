@@ -1,7 +1,8 @@
-#Fri Mar 18 20:31:07 CST 2011
+#Sun Apr 03 17:54:21 CST 2011
 eclipse.preferences.version=1
 encoding//mysite/cms/views_adm.py=utf-8
 encoding//mysite/common/middleware.py=utf-8
+encoding//mysite/common/xheditor.py=utf-8
 encoding//mysite/departments/const.py=utf-8
 encoding//mysite/departments/models.py=utf-8
 encoding//mysite/settings.py=utf-8

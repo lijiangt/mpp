@@ -101,7 +101,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
-#    'django.contrib.sessions',
+    'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     # Uncomment the next line to enable the admin:
@@ -114,7 +114,7 @@ INSTALLED_APPS = (
     'feedback',
     'departments',
 )
-SESSION_ENGINE='django.contrib.sessions.backends.cache'
+
 CACHES = {
 'default': {
     'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -128,7 +128,9 @@ if not DEBUG:
             'LOCATION': '127.0.0.1:11211',
         }
     }
+#print CACHES.get('default',None).get('BACKEND',None)
 
+SESSION_ENGINE='django.contrib.sessions.backends.cached_db'
 USE_L10N = True
 CATEGORY_ICON_PATH='icon/%Y/%j'
 CATEGORY_DEFAULT_ICON_PATH=MEDIA_URL+'/default.png'
@@ -136,6 +138,11 @@ ARTICLE_PIC_PATH='pic/%Y/%j'
 LOGIN_REDIRECT_URL='/cms/'
 LOGIN_URL = '/accounts/login'
 LOGOUT_REDIRECT_URL=LOGIN_URL
+
+FILE_UPLOAD_IMAGE_MAX_SIZE = 2 #M
+FILE_UPLOAD_IMAGE_TYPE=('png','gif','jpg','jpeg')
+FILE_UPLOAD_IMAGE_SAVE_PATH=MEDIA_ROOT+'/upload'
+FILE_UPLOAD_IMAGE_URL_PATH=MEDIA_URL+'/upload'
 
 gettext_noop = lambda s: s
 
