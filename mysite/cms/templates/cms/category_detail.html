@@ -29,7 +29,7 @@
 		</tr>
 		<tr>
 			<th>{% trans 'Icon' %}:</th>
-			<td>{% if category.icon %}<img src="{% media_url %}{{ category.icon.url }}"/>{% endif %}</td>
+			<td>{% if category.icon %}<img src="{% media_url %}{{ category.icon.url|urlencode }}"/>{% endif %}</td>
 		</tr>
 		<tr>
 			<th>{% trans 'Type' %}:</th>

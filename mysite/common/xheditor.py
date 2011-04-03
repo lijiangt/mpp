@@ -8,7 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 import os
 import datetime
 import traceback
+import urllib
 #import uuid
+
 
 def upload_generic_file(request,allow_type,max_size,save_path,url_path):
     if request.method == 'POST':
@@ -29,7 +31,7 @@ def upload_generic_file(request,allow_type,max_size,save_path,url_path):
                 os.makedirs(full_save_path)
 #            file_name = str(uuid.uuid1())+ext
             file_name = f.name
-            full_url_path = url_path+path+file_name
+            full_url_path = url_path+path+urllib.quote(file_name.encode('utf-8'))
             dest = open(full_save_path+file_name, 'wb+')
             try:
                 for chunk in f.chunks():

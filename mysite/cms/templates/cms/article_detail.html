@@ -63,7 +63,7 @@
 		</tr>
 		{%if object.pic %}
 			<th>{% trans 'Picture' %}:</th>
-			<td><img src="{% media_url %}{{ object.pic.url }}"/></td>
+			<td><img src="{% media_url %}{{ object.pic.url|urlencode }}"/></td>
 		{% endif %}
 			{% if object.type == 30 %}
 		<tr>

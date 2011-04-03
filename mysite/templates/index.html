@@ -476,7 +476,7 @@ li span.yellow { color: #fc0; font-size: 1.4em;}
 		<tr>
 {% endifmod %}
 <td> 
-	<a href="{{app.getUrl}}" class="flip" target="_webapp"><img class="touch dropshadow" src="{{app.getIconUrl}}" id="img_{{ forloop.counter0 }}" width="56" height="56" alt="{{app.getName}}" /><br />{{app.getName}}</a> 
+	<a href="{{app.getUrl}}" class="flip" target="_webapp"><img class="touch dropshadow" src="{{app.getIconUrl|urlencode}}" id="img_{{ forloop.counter0 }}" width="56" height="56" alt="{{app.getName}}" /><br />{{app.getName}}</a> 
 </td>
 {% ifmod forloop.counter0 4 3 %}
 		</tr>
