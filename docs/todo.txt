@@ -1,5 +1,5 @@
 实现天气预报app
-rss加缓存及编码处理 参考： http://obmem.info/?p=717
+rss加缓存及编码处理 参考： http://obmem.info/?p=717  http://code.google.com/p/django-cron/wiki/Install
 美化、完善界面
 实现二维码图标显示
 
