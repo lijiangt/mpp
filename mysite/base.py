@@ -26,4 +26,23 @@ class Provider(object):
         module = import_module(mod_name)
         cls = getattr(module, cls_name)
         return cls(**self.kwargs)
+    
+class GenericApp(object):
+    def __init__(self,**kwargs):
+        self.iconUrl = kwargs['iconUrl']
+        self.url = kwargs['url']
+        local_name = kwargs.get('local_name',None)
+        if local_name:
+            self.name = _(local_name)
+        else:
+            self.name = kwargs['name']
+                
+    def getIconUrl(self):
+        return self.iconUrl
+    def getName(self):
+        return self.name
+    def getUrl(self):
+        return self.url
+            
+            
 

@@ -1,0 +1,22 @@
+{% extends "base_mobile.html" %}
+{% block title %}
+weather report
+{% endblock %}
+
+{% block content %}
+        <div class="toolbar">
+            	<a href="/" target="_webapp" class="button leftButton">主页</a> 
+                <h1>weather report</h1>
+                <a class="button slideup" id="infoButton" href="#about">关于</a>
+            </div>
+            <dl>
+           {% for entry in entries %}
+            <dt>{{ entry.title }}</dt>
+			<dd>{{ entry.description }}</dd>
+			{% endfor %}
+           </dl>   
+             
+
+
+              
+{% endblock %}

@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     (r'^cms/',include('cms.urls_adm')),
     (r'^department/',include('departments.urls')),
     (r'^feedback/',include('feedback.urls')),
+    (r'^weather/',include('weather.urls')),
 )
 
 
