@@ -157,7 +157,7 @@ DEFAULT_THEME = 'default'
 EXTEND_HTTP_METHOD='__http_method'
 from base import Page,Provider
 PAGES = {
-    'page-home-cn':Page('Home Page',providers=[
+    'page-home-cn':Page('Bupt Mobile Portal',providers=[
            Provider('cms.app.CmsApp',app_label='bupt_news_cn'),
            Provider('cms.app.CmsApp',app_label='school_info_cn'),
            Provider('cms.app.CmsApp',app_label='fast_track_cn'),
@@ -165,7 +165,7 @@ PAGES = {
            Provider('cms.app.CmsApp',app_label='security_info_cn'),
            Provider('base.GenericApp',local_name='Weather Report',url='/weather/',iconUrl='/s/weather.png'),
                                                ]),
-    'page-home':Page('Home Page',providers=[
+    'page-home':Page('Bupt Mobile Portal',providers=[
             Provider('cms.app.CmsApp',app_label='bupt_news'),
             Provider('cms.app.CmsApp',app_label='school_info'),
             Provider('cms.app.CmsApp',app_label='fast_track'),

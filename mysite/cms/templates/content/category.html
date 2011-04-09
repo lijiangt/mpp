@@ -25,7 +25,9 @@
 			{% endfor %}
     	{% endif %}
 	{% endif %} 
-
-			
-            </ul>          
+            </ul>     
+            
+	 	{% if category.father %}
+			 <a href="/content/{{ category.father.id }}/" class="grayButton" target="_webapp">返回 {{category.father.name}}</a>
+		{% endif %}
 {% endblock %}

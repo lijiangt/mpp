@@ -57,6 +57,8 @@ def feed_entry_view(request,category_id=None,url_hash=None):
         if hashlib.sha224(entry.link).hexdigest() == url_hash:
             return render_to_response('content/feed_entry.html',{
                 'entry':entry,
+                'category':category,
+                'feed':feed,
                 },context_instance=RequestContext(request))
     raise Http404
     

@@ -5,13 +5,18 @@
 
 {% block content %}
             <div class="toolbar">
-            	<a href="/#home" target="_webapp" class="button leftButton">主页</a> 
+            	<a href="/" target="_webapp" class="button leftButton">主页</a> 
                 <h1>{{feed.title}}</h1>
                 <a class="button slideup" id="infoButton" href="#about">关于</a>
             </div>
+            
              <ul class="rounded">
            {% for entry in entries %}
                 <li class="forward"><a target="_webapp" href="./{{entry.url_hash}}">{{entry.title}}</a></li>
 			{% endfor %}
             </ul>  
+            
+	 	{% if category.father %}
+			 <a href="/content/{{ category.father.id }}/" class="grayButton" target="_webapp">返回 {{category.father.name}}</a>
+		{% endif %}
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends "base_mobile.html" %}
+{% load media %}
 {% block title %}
 {{article.title}}
 {% endblock %}
@@ -9,19 +10,28 @@
                 <h1>{{article.title}}</h1>
                 <a class="button slideup" id="infoButton" href="#about">关于</a>
             </div>
+            
+            <div class="container">
+            	<p>
+            	发布时间：{{article.posted|date:"Y-m-d G:i"}}
+            	</p>
+            	<p>
+            	{% if article.pic %}
+            	<img src="{% media_url %}{{ article.pic.url|urlencode }}"/>
+            	{% else %}
+            	  <br />
+            	{% endif %}
+            	</p>
+            	<p>
                {{article.content|safe}}
-                <p><br />
-                <br /> 
-                
-             
+             </p>
+             </div>
  	{% if category.type == 40 %}
 	 	{% if category.father %}
-			 <a href="/content/{{ category.father.id }}/" class="grayButton" target="_webapp">返回</a></p>
-		{% else %}
-		 	<a href="/" class="grayButton" target="_webapp">返回</a></p>
+			 <a href="/content/{{ category.father.id }}/" class="grayButton" target="_webapp">返回 {{category.father.name}}</a>
 		{% endif %}
 	{% else %}
-	 		 <a href="/content/{{ category.id }}/" class="grayButton" target="_webapp">返回</a></p>
+	 		 <a href="/content/{{ category.id }}/" class="grayButton" target="_webapp">返回 {{category.name}}</a>
 	{% endif %}
 
               

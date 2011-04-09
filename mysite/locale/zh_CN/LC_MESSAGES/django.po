@@ -22,6 +22,12 @@ msgstr ""
 msgid "Home Page"
 msgstr "首页"
 
+msgid "Weather Report"
+msgstr "天气预报"
+
+msgid "Bupt Mobile Portal"
+msgstr "北邮移动门户"
+
 #: setttings.py:138
 msgid "page-home"
 msgstr "page-home-cn"

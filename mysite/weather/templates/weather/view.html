@@ -1,21 +1,24 @@
 {% extends "base_mobile.html" %}
+{% load i18n %}
 {% block title %}
-weather report
+{% trans 'Weather Report' %}
 {% endblock %}
 
 {% block content %}
         <div class="toolbar">
             	<a href="/" target="_webapp" class="button leftButton">主页</a> 
-                <h1>weather report</h1>
+                <h1>{% trans 'Weather Report' %}</h1>
                 <a class="button slideup" id="infoButton" href="#about">关于</a>
             </div>
-            <dl>
+        <div class="container">
            {% for entry in entries %}
-            <dt>{{ entry.title }}</dt>
-			<dd>{{ entry.description }}</dd>
+           <p>
+            {{ entry.title }}<br />
+			{{ entry.description }}
+		   </p>
+		   <br />
 			{% endfor %}
-           </dl>   
-             
+         </div> 
 
 
               
