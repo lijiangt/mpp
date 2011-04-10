@@ -271,5 +271,5 @@ msgstr "取消"
 msgid "Weather Report"
 msgstr "天气预报"
 
-# msgid "Bupt Mobile Portal"
-# msgstr "北邮移动门户"
+msgid "Bupt Mobile Portal"
+msgstr "北邮移动门户"

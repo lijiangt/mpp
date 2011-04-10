@@ -1,0 +1,50 @@
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ServerName exp.nesdu.org
+
+Alias /s/ /var/www/mpp/mysite/s/
+<Directory /var/www/mpp/mysite/s/>
+Order deny,allow
+Allow from all
+</Directory>
+
+<Directory /var/www/mpp/mysite/s/jquery>
+	AllowOverride All
+	Order allow,deny
+	Allow from all
+	ExpiresActive On
+	ExpiresDefault A2592000
+</Directory>
+
+<Directory /var/www/mpp/mysite/s/jqtouch>
+	AllowOverride All
+	Order allow,deny
+	Allow from all
+	ExpiresActive On
+	ExpiresDefault A2592000
+</Directory>
+
+Alias /s_admin/ /usr/local/lib/python2.6/dist-packages/django/contrib/admin/media/
+<Directory /usr/local/lib/python2.6/dist-packages/django/contrib/admin/media/>
+Order deny,allow
+Allow from all
+</Directory>
+
+WSGIScriptAlias / /var/www/mpp/wsgi/mysite.wsgi
+
+<Directory /var/www/mpp/wsgi>
+Order allow,deny
+Allow from all
+</Directory>
+
+
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
