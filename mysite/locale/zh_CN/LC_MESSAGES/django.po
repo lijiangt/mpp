@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-10 11:23+0800\n"
+"POT-Creation-Date: 2011-04-10 13:10+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,6 @@ msgstr "page-home-cn"
 
 #: cms/models.py:9 cms/models.py:24 cms/templates/cms/category_detail.html:38
 #: cms/templates/cms/category_list.html:46
-#, fuzzy
 msgid "Father Category"
 msgstr "父类别"
 
@@ -110,7 +109,6 @@ msgid "Category"
 msgstr "类别"
 
 #: cms/models.py:30
-#, fuzzy
 msgid "Categories"
 msgstr "类别"
 
@@ -163,7 +161,6 @@ msgid "Article"
 msgstr "文章"
 
 #: cms/models.py:89
-#, fuzzy
 msgid "Articles"
 msgstr "文章"
 
@@ -230,7 +227,6 @@ msgid "Aleady Read"
 msgstr "已读"
 
 #: feedback/models.py:9 feedback/models.py:23
-#, fuzzy
 msgid "Commit Time"
 msgstr "创建时间"
 
@@ -275,5 +271,5 @@ msgstr "取消"
 msgid "Weather Report"
 msgstr "天气预报"
 
-msgid "Bupt Mobile Portal"
-msgstr "北邮移动门户"
+# msgid "Bupt Mobile Portal"
+# msgstr "北邮移动门户"
