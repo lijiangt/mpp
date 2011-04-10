@@ -1,4 +1,4 @@
-实现天气预报app
+
 rss加缓存及编码处理 参考： http://obmem.info/?p=717  http://code.google.com/p/django-cron/wiki/Install
 美化、完善界面
 实现二维码图标显示
@@ -8,4 +8,5 @@ rss加缓存及编码处理 参考： http://obmem.info/?p=717  http://code.goog
 [完成]session后端调整
 [完成]实现语言之间切换 参见： http://localhost:8080/accounts/login?next=/cms/
 [完成]实现xheditor文件上传
+[完成]实现天气预报app
 

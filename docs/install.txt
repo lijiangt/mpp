@@ -8,3 +8,4 @@ sudo apt-get install python-imaging
 安装feedparser和chardet
 sudo easy_install feedparser
 sudo easy_install chardet
+sudo apt-get install python-memcache memcached

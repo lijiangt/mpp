@@ -6,7 +6,7 @@ from django.utils.translation import ugettext as _
 def index(request):
     page = settings.PAGES.get(_('page-home'),None)
     if not page:
-        page = settings.PAGES.get(_('page-home-cn'),None)
+        page = settings.PAGES.get('page-home-cn',None)
     apps = page.getApps()
     return render_to_response('index.html', {
                 'page':page,
