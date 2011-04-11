@@ -12,7 +12,7 @@ class Feedback(models.Model):
         verbose_name = _('Feedback')
         verbose_name_plural = _('Feedbacks')
     def __unicode__(self):
-        return self.id
+        return str(self.id)
             
 class SuggestFeature(models.Model):
     name=models.CharField(_('Your Name'),blank=True, null=True,max_length=50)
@@ -26,4 +26,4 @@ class SuggestFeature(models.Model):
         verbose_name = _('Feature Suggest')
         verbose_name_plural = _('Feature Suggests')
     def __unicode__(self):
-        return self.id
+        return str(self.id)

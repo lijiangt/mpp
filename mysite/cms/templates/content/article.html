@@ -6,7 +6,7 @@
 
 {% block content %}
         <div class="toolbar">
-            	<a href="/" target="_webapp" class="button leftButton">主页</a> 
+            	<a href="/#home" target="_webapp" class="back">主页</a> 
                 <h1>{{article.title}}</h1>
                 <a class="button slideup" id="infoButton" href="#about">关于</a>
             </div>
@@ -28,10 +28,10 @@
              </div>
  	{% if category.type == 40 %}
 	 	{% if category.father %}
-			 <a href="/content/{{ category.father.id }}/" class="grayButton" target="_webapp">返回 {{category.father.name}}</a>
+			 <a href="/content/{{ category.father.id }}/" target="_webapp" class="grayButton" onclick="javascript:self.location.href='/content/{{ category.father.id }}/';">返回 {{category.father.name}}</a>
 		{% endif %}
 	{% else %}
-	 		 <a href="/content/{{ category.id }}/" class="grayButton" target="_webapp">返回 {{category.name}}</a>
+	 		 <a href="/content/{{ category.id }}/"  target="_webapp" class="grayButton" onclick="javascript:self.location.href='/content/{{ category.id }}/';">返回 {{category.name}}</a>
 	{% endif %}
 
               
