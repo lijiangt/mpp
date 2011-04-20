@@ -1,17 +1,36 @@
-{% extends "base_mobile.html" %}
 {% load media %}
-{% block title %}
-{{article.title}}
-{% endblock %}
+{% load theme %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="application/xhtml+xml" />
+<title>{{article.title}}</title>
+<link rel="shortcut icon" href="/favicon.ico" />
+<link
+	href="{% media_url %}/themes/{% theme %}/common.css"
+	rel="stylesheet" media="all" type="text/css" />
+</head>
+<body>
+<div id="nonfooternav"><a name="top"></a>
+<div id="navbar">
+<div class="breadcrumbs homepage">
+	<a name="top" href="/"
+	class="homelink"><img src="{% media_url %}/themes/{% theme %}/button/homelink.png" width="57"
+	height="45" alt="主页" /></a>
+ 	{% if category.type == 40 %}
+	 	{% if category.father %}
+			 <a href="/content/{{ category.father.id }}/" class="module"><img src="{% media_url %}/themes/{% theme %}/button/uplink.png" width="28" height="28" alt="返回上一级" /></a>
+		{% endif %}
+	{% else %}
+	 		 <a href="/content/{{ category.id }}/" class="module"><img src="{% media_url %}/themes/{% theme %}/button/uplink.png" width="28" height="28" alt="返回上一级" /></a>
+	{% endif %}
+	<span class="pagetitle">{{article.title}}</span></div>
+</div>
 
-{% block content %}
-        <div class="toolbar">
-            	<a href="/#home" target="_webapp" class="back">主页</a> 
-                <h1>{{article.title}}</h1>
-                <a class="button slideup" id="infoButton" href="#about">关于</a>
-            </div>
-            
-            <div class="container">
+<div id="container">
+<div class="focal">
+<h2></h2>
             	<p>
             	发布时间：{{article.posted|date:"Y-m-d G:i"}}
             	</p>
@@ -25,14 +44,12 @@
             	<p>
                {{article.content|safe}}
              </p>
-             </div>
- 	{% if category.type == 40 %}
-	 	{% if category.father %}
-			 <a href="/content/{{ category.father.id }}/" target="_webapp" class="grayButton" onclick="javascript:self.location.href='/content/{{ category.father.id }}/';">返回 {{category.father.name}}</a>
-		{% endif %}
-	{% else %}
-	 		 <a href="/content/{{ category.id }}/"  target="_webapp" class="grayButton" onclick="javascript:self.location.href='/content/{{ category.id }}/';">返回 {{category.name}}</a>
-	{% endif %}
-
-              
-{% endblock %}
+</div>
+<div id="footerlinks"><a href="#top">回到顶端</a> | <a href="../home/">掌上网院首页</a></div>
+<div id="footer"><a href="http://www.buptnu.com.cn"
+	class="copyright">&copy; 2011 北京邮电大学教育技术研究所</a></div>
+</div>
+</div>
+<!--nonfooternav -->
+</body>
+</html>

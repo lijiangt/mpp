@@ -1,33 +1,52 @@
-{% extends "base_mobile.html" %}
-{% block title %}
-{{category.name}}
-{% endblock %}
-
-{% block content %}
-            <div class="toolbar">
-            	<a href="/#home" target="_webapp" class="back">主页</a> 
-                <h1>{{category.name}}</h1>
-                <a class="button slideup" id="infoButton" href="#about">关于</a>
-            </div>
-             <ul class="rounded">
+{% load media %}
+{% load theme %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="application/xhtml+xml" />
+<title>{{category.name}}</title>
+<link rel="shortcut icon" href="/favicon.ico" />
+<link
+	href="{% media_url %}/themes/{% theme %}/common.css"
+	rel="stylesheet" media="all" type="text/css" />
+</head>
+<body>
+<div id="nonfooternav"><a name="top"></a>
+<div id="navbar">
+<div class="breadcrumbs homepage">
+	<a name="top" href="/"
+	class="homelink"><img src="{% media_url %}/themes/{% theme %}/button/homelink.png" width="57"
+	height="45" alt="主页" /></a>
+	{% if category.father %}
+	<a href="/content/{{ category.father.id }}/" class="module"><img src="{% media_url %}/themes/{% theme %}/button/uplink.png" width="28" height="28" alt="返回上一级" /></a>
+	{% endif %}
+	<span class="pagetitle">{{category.name}}</span></div>
+</div>
+<div id="container">
+<ul class="nav">
     {% if category.type == 10 %}
             {% for c in categories %}
-                <li class="forward"><a target="_webapp" href="/content/{{c.id}}/">{{c.name}}</a></li>
+                <li><a href="/content/{{c.id}}/">{{c.name}}</a></li>
 			{% endfor %}
     {% else %}
     	{% if category.type == 50 %}
 			{% for article in articles %}
-           		<li class="forward"><a target="_blank" href="{{article.id}}">{{article.title}}</a></li>
+           		<li><a href="{{article.id}}">{{article.title}}</a></li>
 			{% endfor %}    	
     	{% else %}
 	    	{% for article in articles %}
-	            <li class="forward"><a target="_webapp" href="{{article.id}}">{{article.title}}</a></li>
+	            <li><a href="{{article.id}}">{{article.title}}</a></li>
 			{% endfor %}
     	{% endif %}
 	{% endif %} 
-            </ul>     
-            
-	 	{% if category.father %}
-			 <a href="/content/{{ category.father.id }}/" class="grayButton" target="_webapp" onclick="javascript:self.location.href='/content/{{ category.father.id }}/';">返回 {{category.father.name}}</a>
-		{% endif %}
-{% endblock %}
+</ul>
+
+<div id="footerlinks"><a href="#top">回到顶端</a> | <a href="../home/">掌上网院首页</a></div>
+<div id="footer"><a href="http://www.buptnu.com.cn"
+	class="copyright">&copy; 2011 北京邮电大学教育技术研究所</a></div>
+</div>
+</div>
+<!--nonfooternav -->
+</body>
+</html>
