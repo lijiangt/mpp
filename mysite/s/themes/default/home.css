@@ -5,6 +5,7 @@
 	text-align: center;
 	width: 100%;
 	padding: 0;
+	color: #003366;
 }
 h1.roomfornew {
 	text-align: left;
@@ -53,3 +54,20 @@ form {
 	margin: 0 0 -7px 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+	background-image: url(images/background-glow.png);
+	background-repeat: repeat-x;
+}
