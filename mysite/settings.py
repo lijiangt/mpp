@@ -113,6 +113,7 @@ INSTALLED_APPS = (
     'mysite',
     'feedback',
     'departments',
+    'bmap',
     'weather'
 )
 
@@ -164,6 +165,8 @@ PAGES = {
            Provider('cms.app.CmsApp',app_label='bus_info_cn'),
            Provider('cms.app.CmsApp',app_label='security_info_cn'),
            Provider('base.GenericApp',local_name='Weather Report',url='/weather/',iconUrl='/s/weather.png'),
+           Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
+           Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
                                                ]),
     'page-home':Page('Bupt Mobile Portal',providers=[
             Provider('cms.app.CmsApp',app_label='bupt_news'),
@@ -171,5 +174,13 @@ PAGES = {
             Provider('cms.app.CmsApp',app_label='fast_track'),
             Provider('cms.app.CmsApp',app_label='bus_info'),
             Provider('cms.app.CmsApp',app_label='security_info'),
+            Provider('base.GenericApp',local_name='Weather Report',url='/weather/',iconUrl='/s/weather.png'),
+            Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
+            Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
                                             ]),
 }
+
+if False:
+    print gettext_noop('Bupt Mobile Portal')
+    print gettext_noop('Departments List')
+    print gettext_noop('BUPT Map')

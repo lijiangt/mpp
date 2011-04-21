@@ -1,0 +1,58 @@
+{% extends "base_mobile.html" %}
+{% load i18n %}
+{% block title %}
+{{department.building.name}}
+{% endblock %}
+
+{% block extrahead %}
+<script type="text/javascript">
+$(document).ready(function(){
+	initialize();	
+});
+</script>
+
+{% endblock extrahead %}
+
+{% block content %}
+
+        <div class="toolbar">
+            	<a href="/departments/{{department.id}}" target="_webapp" class="back">返回</a> 
+                <h1>{{department.name}}位于{{department.building.name}}</h1>
+                <a class="button slideup" id="infoButton" href="#about">关于</a>
+            </div>
+<div id="container">
+<!-- the following is supposed to make sure the iphone view clear the addy bar -->
+<script type="text/javascript">
+window.addEventListener('load', function(){
+setTimeout(scrollTo, 0, 0, 1);
+}, false);
+</script>
+<a name="scrolldown"></a>
+
+<div class="info">
+{{department.name}}位于{{department.building.name}}{{department.room}}
+<img src="{% load media %}{% media_url %}/department.png" height="20" width="17" alt="Marker" />
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAdm4RxT_sqwwAfqqfvQhjzhRAu4zTk53ev3LBrNGdMaxAjyCXDBQ3FfPNid6C9ZnkfzkNu7VNoSHCIQ" type="text/javascript"></script>
+<script type="text/javascript">
+function initialize() {
+var map = new GMap2(document.getElementById("map_canvas"));
+map.setUIToDefault();
+map.setCenter(new GLatLng({{department.building.latitude}},{{department.building.longitude}}), 15);
+var point = new GLatLng({{department.building.latitude}},{{department.building.longitude}});
+var baseIcon = new GIcon(G_DEFAULT_ICON);
+baseIcon.image = "{% load media %}{% media_url %}/department.png";
+baseIcon.shadow = "{% load media %}{% media_url %}/shadow.png";
+baseIcon.iconSize = new GSize(32, 37);
+baseIcon.shadowSize = new GSize(51, 37);
+markerOptions = { icon:baseIcon };
+var marker = new GMarker(point, markerOptions);
+map.addOverlay(marker);
+}
+</script>
+<div id="map_canvas" style="width: 285px; height: 235px"></div>
+<a href="http://maps.google.com/maps?sll={{department.building.latitude}},{{department.building.longitude}}">在谷歌地图中浏览</a>
+</div> <!-- id="maptab" -->
+
+</div>
+
+{% endblock %}

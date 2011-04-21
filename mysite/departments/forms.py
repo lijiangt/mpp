@@ -6,7 +6,7 @@ class BuildingForm(forms.Form):
     name = forms.CharField(_(u'Building'),max_length=CONST['namelength'],unique=True)
     description = forms.CharField(_(u'Description'),max_length=CONST['description'],required=False,widget=forms.Textarea)
     latitude = forms.FloatField(_(u'Latitude'),required=False)
-    atitude = forms.FloatField(_(u'Atitude'),required=False)
+    longitude = forms.FloatField(_(u'Longitude'),required=False)
 
 
 class DeparmentForm(forms.Form):

@@ -6,11 +6,11 @@ from django.utils.translation import ugettext_lazy as _
 from const import CONST
 
 class Building(models.Model):
-    """学校各个教学楼等"""
+    """学校各个教学楼等  0 用来标识北京邮电大学的位置"""
     name = models.CharField(_(u'Building'),max_length=CONST['namelength'],unique=True)
     description = models.TextField(_(u'Description'),max_length=CONST['description'],null=True,blank=True)
     latitude = models.FloatField(_(u'Latitude'),null=True,blank=True)
-    atitude = models.FloatField(_(u'Atitude'),null=True,blank=True)
+    longitude = models.FloatField(_(u'Longitude'),null=True,blank=True)
     
     def __unicode__(self):
         return self.name

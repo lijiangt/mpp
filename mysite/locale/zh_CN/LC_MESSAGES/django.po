@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-10 13:10+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2011-04-13 14:21+0830\n"
+"Last-Translator: zzq <buptnu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -30,81 +29,106 @@ msgstr "英文"
 msgid "page-home"
 msgstr "page-home-cn"
 
-#: cms/models.py:9 cms/models.py:24 cms/templates/cms/category_detail.html:38
+#: cms/models.py:9
+#: cms/models.py:24
+#: cms/templates/cms/category_detail.html:38
 #: cms/templates/cms/category_list.html:46
 msgid "Father Category"
 msgstr "父类别"
 
-#: cms/models.py:10 cms/templates/cms/category_detail.html:41
+#: cms/models.py:10
+#: cms/templates/cms/category_detail.html:41
 #: cms/templates/cms/category_list.html:49
 msgid "Article List"
 msgstr "文章列表"
 
-#: cms/models.py:11 cms/templates/cms/category_detail.html:44
+#: cms/models.py:11
+#: cms/templates/cms/category_detail.html:44
 #: cms/templates/cms/category_list.html:52
 msgid "Article With Picture List"
 msgstr "图文列表"
 
-#: cms/models.py:12 cms/templates/cms/category_detail.html:47
+#: cms/models.py:12
+#: cms/templates/cms/category_detail.html:47
 #: cms/templates/cms/category_list.html:55
 msgid "Single Article"
 msgstr "单篇文章/图文"
 
-#: cms/models.py:13 cms/templates/cms/category_detail.html:50
+#: cms/models.py:13
+#: cms/templates/cms/category_detail.html:50
 #: cms/templates/cms/category_list.html:58
 msgid "Link List"
 msgstr "链接列表"
 
-#: cms/models.py:14 cms/models.py:20 cms/templates/cms/category_detail.html:53
+#: cms/models.py:14
+#: cms/models.py:20
+#: cms/templates/cms/category_detail.html:53
 #: cms/templates/cms/category_detail.html:62
 #: cms/templates/cms/category_list.html:61
 msgid "Redirection Link"
 msgstr "跳转链接"
 
-#: cms/models.py:15 cms/models.py:20 cms/templates/cms/category_detail.html:56
+#: cms/models.py:15
+#: cms/models.py:20
+#: cms/templates/cms/category_detail.html:56
 #: cms/templates/cms/category_detail.html:68
 #: cms/templates/cms/category_list.html:64
 msgid "RSS"
 msgstr "RSS订阅"
 
-#: cms/models.py:17 cms/templates/cms/category_detail.html:27
+#: cms/models.py:17
+#: cms/templates/cms/category_detail.html:27
 msgid "Name"
-msgstr "名称"
+msgstr "Name"
 
-#: cms/models.py:18 cms/templates/cms/category_detail.html:31
+#: cms/models.py:18
+#: cms/templates/cms/category_detail.html:31
 msgid "Icon"
 msgstr "图标"
 
-#: cms/models.py:19 cms/models.py:80 cms/templates/cms/article_detail.html:51
+#: cms/models.py:19
+#: cms/models.py:80
+#: cms/templates/cms/article_detail.html:51
 #: cms/templates/cms/category_detail.html:35
 msgid "Type"
 msgstr "类型"
 
-#: cms/models.py:20 cms/models.py:85 cms/views_adm.py:164
+#: cms/models.py:20
+#: cms/models.py:85
+#: cms/views_adm.py:164
 #: cms/templates/cms/category_detail.html:68
 msgid "URL"
 msgstr "链接"
 
-#: cms/models.py:22 cms/templates/cms/article_detail.html:93
+#: cms/models.py:22
+#: cms/templates/cms/article_detail.html:93
 #: cms/templates/cms/category_detail.html:78
 msgid "Created Time"
 msgstr "创建时间"
 
-#: cms/models.py:23 cms/models.py:84 cms/templates/cms/article_detail.html:97
+#: cms/models.py:23
+#: cms/models.py:84
+#: cms/templates/cms/article_detail.html:97
 #: cms/templates/cms/category_detail.html:82
 msgid "Last Modified Time"
 msgstr "最后修改时间"
 
-#: cms/models.py:26 cms/templates/cms/category_detail.html:74
+#: cms/models.py:26
+#: cms/templates/cms/category_detail.html:74
 msgid "Application Label"
 msgstr "应用标签"
 
-#: cms/models.py:27 departments/forms.py:7 departments/forms.py:14
-#: departments/models.py:11 departments/models.py:23
+#: cms/models.py:27
+#: departments/forms.py:7
+#: departments/forms.py:14
+#: departments/models.py:11
+#: departments/models.py:23
 msgid "Description"
 msgstr "描述"
 
-#: cms/models.py:29 cms/models.py:81 cms/templates/cms/article_detail.html:47
+#: cms/models.py:29
+#: cms/models.py:81
+#: cms/templates/cms/article_detail.html:47
 msgid "Category"
 msgstr "类别"
 
@@ -112,43 +136,54 @@ msgstr "类别"
 msgid "Categories"
 msgstr "类别"
 
-#: cms/models.py:69 cms/models.py:75 cms/templates/cms/article_detail.html:54
+#: cms/models.py:69
+#: cms/models.py:75
+#: cms/templates/cms/article_detail.html:54
 #: cms/templates/cms/article_detail.html:84
 #: cms/templates/cms/category_detail.html:129
 msgid "Normal"
 msgstr "普通"
 
-#: cms/models.py:70 cms/templates/cms/article_detail.html:57
+#: cms/models.py:70
+#: cms/templates/cms/article_detail.html:57
 #: cms/templates/cms/category_detail.html:132
 msgid "Article With Picture"
 msgstr "图文"
 
-#: cms/models.py:71 cms/templates/cms/article_detail.html:60
+#: cms/models.py:71
+#: cms/templates/cms/article_detail.html:60
 #: cms/templates/cms/category_detail.html:135
 msgid "Friend Link"
 msgstr "友情链接"
 
-#: cms/models.py:74 cms/models.py:86 cms/templates/cms/article_detail.html:80
+#: cms/models.py:74
+#: cms/models.py:86
+#: cms/templates/cms/article_detail.html:80
 #: cms/templates/cms/article_detail.html:82
 msgid "Set Top"
 msgstr "置顶"
 
-#: cms/models.py:77 cms/templates/cms/article_detail.html:43
+#: cms/models.py:77
+#: cms/templates/cms/article_detail.html:43
 #: feedback/models.py:20
 msgid "Title"
 msgstr "标题"
 
-#: cms/models.py:78 cms/templates/cms/article_detail.html:75
-#: feedback/models.py:7 feedback/models.py:21
+#: cms/models.py:78
+#: cms/templates/cms/article_detail.html:75
+#: feedback/models.py:7
+#: feedback/models.py:21
 msgid "Content"
 msgstr "内容"
 
-#: cms/models.py:79 cms/views_adm.py:156
+#: cms/models.py:79
+#: cms/views_adm.py:156
 #: cms/templates/cms/article_detail.html:65
 msgid "Picture"
 msgstr "图片"
 
-#: cms/models.py:82 cms/templates/cms/article_detail.html:89
+#: cms/models.py:82
+#: cms/templates/cms/article_detail.html:89
 msgid "View Times"
 msgstr "查看次数"
 
@@ -172,45 +207,58 @@ msgstr "网址"
 msgid "Please click here to visit full aricle."
 msgstr "请点击此处查看全文。"
 
-#: departments/forms.py:6 departments/forms.py:24 departments/models.py:10
+#: departments/forms.py:6
+#: departments/forms.py:24
+#: departments/models.py:10
 msgid "Building"
-msgstr ""
+msgstr "办公楼"
 
-#: departments/forms.py:8 departments/models.py:12
+#: departments/forms.py:8
+#: departments/models.py:12
 msgid "Latitude"
-msgstr ""
+msgstr "经度"
 
-#: departments/forms.py:9 departments/models.py:13
-msgid "Atitude"
-msgstr ""
+#: departments/forms.py:9
+#: departments/models.py:13
+msgid "Longitude"
+msgstr "纬度"
 
-#: departments/forms.py:13 departments/forms.py:21 departments/models.py:22
+#: departments/forms.py:13
+#: departments/forms.py:21
+#: departments/models.py:22
 msgid "Department"
-msgstr ""
+msgstr "部门"
 
-#: departments/forms.py:15 departments/forms.py:22 departments/models.py:24
+#: departments/forms.py:15
+#: departments/forms.py:22
+#: departments/models.py:24
 #: departments/models.py:39
 msgid "Room"
-msgstr ""
+msgstr "房间"
 
-#: departments/forms.py:16 departments/forms.py:23 departments/models.py:25
+#: departments/forms.py:16
+#: departments/forms.py:23
+#: departments/models.py:25
 #: departments/models.py:40
 msgid "Phone"
-msgstr ""
+msgstr "电话"
 
-#: departments/forms.py:17 departments/models.py:26
+#: departments/forms.py:17
+#: departments/models.py:26
 msgid "WorkTime"
-msgstr ""
+msgstr "工作时间"
 
-#: departments/forms.py:18 departments/models.py:27
+#: departments/forms.py:18
+#: departments/models.py:27
 msgid "MainPageUrl"
-msgstr ""
+msgstr "办公主页"
 
 #: departments/models.py:38
 msgid "SubDepartment"
 msgstr "子部门"
 
-#: feedback/models.py:5 feedback/models.py:19
+#: feedback/models.py:5
+#: feedback/models.py:19
 msgid "Email"
 msgstr "邮箱"
 
@@ -222,15 +270,18 @@ msgstr "可选"
 msgid "Referer"
 msgstr "引用"
 
-#: feedback/models.py:8 feedback/models.py:22
+#: feedback/models.py:8
+#: feedback/models.py:22
 msgid "Aleady Read"
 msgstr "已读"
 
-#: feedback/models.py:9 feedback/models.py:23
+#: feedback/models.py:9
+#: feedback/models.py:23
 msgid "Commit Time"
 msgstr "创建时间"
 
-#: feedback/models.py:10 feedback/models.py:24
+#: feedback/models.py:10
+#: feedback/models.py:24
 msgid "Commit Ip"
 msgstr "提交IP"
 
@@ -273,3 +324,10 @@ msgstr "天气预报"
 
 msgid "Bupt Mobile Portal"
 msgstr "北邮移动门户"
+
+msgid "Departments List"
+msgstr "部门列表"
+
+msgid "BUPT Map"
+msgstr "校园地图"
+

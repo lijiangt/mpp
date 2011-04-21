@@ -1,29 +1,38 @@
 {% extends "base_mobile.html" %}
+{% load call_phone %}}
+
 {% block title %}
 {{department.name}}
 {% endblock %}
 
 {% block content %}
         <div class="toolbar">
-            	<a href="/#home" target="_webapp" class="button leftButton">主页</a> 
+            	<a href="/departments#home"  target="_webapp" class="back">返回</a> 
                 <h1>{{department.name}}</h1>
                 <a class="button slideup" id="infoButton" href="#about">关于</a>
             </div>
         <div class="info">
-            办公室：{{department.building}}－{{department.room}}房间 <br>
-            电话：{{department.telephone}} <br>
-            
+            办公室：{{department.building}}－{{department.room}}房间  <a  target="_webapp" onclick="self.location.href='/bmap/{{department.id}}'" 
+            href="/bmap/{{department.id}}">查看地图</a><br>
+            {%if department.telephone %}
+                 电话：<a  target="_blank"  href="tel:010{{department.telephone}}">{{department.telephone}}</a><br>
+            {%endif%}
+            {%if department.website %}
+                部门主页：<a target="_blank"  href="{{department.website}}">{{department.website}}<br></a>
+            {%endif%}
+                        
             {%if subdepartments%}
             {% for subdepartment in subdepartments %}
-                <li>{{subdepartment.name}}在{{subdepartment.room}}房间，电话：{{subdepartment.telephone}}</li>
+                <li>{{subdepartment.name}}在{{subdepartment.room}}房间
+                {%if  subdepartment.telephone%}
+                电话：<a target="_blank"   href="tel:010{{subdepartment.telephone}}">{{subdepartment.telephone}}</a><br>
+                {%endif%}</li>
 			{% endfor %}
             {%endif%}   
-            
-            </div>
+        </div>
             
         <div class="info">
                {{department.description|safe}}
-               
-            </div>
+        </div>
                
 {% endblock %}
