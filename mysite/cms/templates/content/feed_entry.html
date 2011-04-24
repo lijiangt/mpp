@@ -1,27 +1,31 @@
-{% extends "base_mobile.html" %}
-{% load i18n %}
-{% block title %}
-{{entry.title}}
-{% endblock %}
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
+
+{% block title %}{{entry.title}}{% endblock title %}
+
+{% block navbar %}
+{% for father in father_stack %}
+<a href="/content/{{ father.id }}/" class="module">
+{% if father.icon %}
+	<img src="{% media_url %}{{ father.icon.url|urlencode }}" width="28" height="28" alt="{{father.name}}" />
+{% else %}
+	{{father.name}}
+{% endif %} 
+</a>
+{% endfor %}	
+<span class="pagetitle">{{entry.title}}</span>
+{% endblock navbar %}
 
 {% block content %}
-            <div class="toolbar">
-            	<a href="/#home" target="_webapp" class="back">主页</a> 
-                <h1>{{entry.title}}</h1>
-                <a class="button slideup" id="infoButton" href="#about">关于</a>
-            </div>
-            
-            <div class="container">
-            	<p>
+<div class="focal">
+<h2></h2>
+<p>
                 {{entry.description|safe}}
                 </p>
                 <br />
                 <p>
                 <a href="{{entry.link}}" target="_blank">{% trans "Please click here to visit full aricle." %}</a>
                 </p> 
-             </div>   
-			 <a href="/content/{{ category.id }}/" class="grayButton" target="_webapp" onclick="javascript:self.location.href='/content/{{ category.id }}/';">返回 {{category.name}}</a>
-               
-                
-
-{% endblock %}
+</div>
+{% endblock content %}

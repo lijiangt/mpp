@@ -1,25 +1,19 @@
-{% extends "base_mobile.html" %}
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
 {% load i18n %}
-{% block title %}
-{% trans 'Weather Report' %}
-{% endblock %}
+
+{% block title %}{% trans 'Weather Report' %}{% endblock title %}
+
+{% block navbar %}	
+<span class="pagetitle">{% trans 'Weather Report' %}</span>
+{% endblock navbar %}
 
 {% block content %}
-        <div class="toolbar">
-            	<a href="/#home" target="_webapp" class="back">主页</a> 
-                <h1>{% trans 'Weather Report' %}</h1>
-                <a class="button slideup" id="infoButton" href="#about">关于</a>
-            </div>
-        <div class="container">
-           {% for entry in entries %}
-           <p>
-            {{ entry.title }}<br />
-			{{ entry.description }}
-		   </p>
-		   <br />
-			{% endfor %}
-         </div> 
+<ul class="nav">
+{% for entry in entries %}
+<li>{{ entry.title }} {{ entry.description }}</li>
+{% endfor %}
+</ul>
 
-
-              
-{% endblock %}
+{% endblock content %}

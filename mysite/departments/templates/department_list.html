@@ -1,21 +1,18 @@
-{% extends "base_mobile.html" %}
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
 {% load i18n %}
 
-{% block title %}
-{% trans 'Departments List' %}
-{% endblock %}
+{% block title %}{% trans 'Departments List' %}{% endblock title %}
 
-
+{% block navbar %}
+<span class="pagetitle">{% trans 'Departments List' %}</span>
+{% endblock navbar%}
 
 {% block content %}
-        <div class="toolbar">
-            	<a href="/#home" target="_webapp" class="back">主页</a> 
-                <h1>{% trans 'Departments List' %}</h1>
-                <a class="button slideup" id="infoButton" href="#about">关于</a>
-            </div>
-             <ul class="rounded">
+<ul class="nav">
             {% for department in departments %}
-                <li class="forward"><a target="_webapp" class="flip" href="{{department.id}}#home">{{department.name}}</a></li>
+                <li><a href="{{department.id}}#home">{{department.name}}</a></li>
 			{% endfor %}
-            </ul>          
-{% endblock %}
+</ul>
+{% endblock content %}

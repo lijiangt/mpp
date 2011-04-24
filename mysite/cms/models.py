@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 #from django.utils.translation import ugettext as _
 from django.utils.translation import ugettext_lazy as _
-from django.db.models import Max
+#from django.db.models import Max
 
 class Category(models.Model):
     TYPE_CHOICES = (
@@ -54,7 +54,7 @@ class Category(models.Model):
 #def get_category_by_tag(page):
 #    return Category.objects.filter(tags__contains=' %s,'%page).order_by('-seqNum')
 def get_category_by_app_label(app_label):
-    l = Category.objects.filter(appLabel__exact=app_label)
+    l = Category.objects.filter(appLabel__exact=app_label).filter(father__isnull=True)
     assert len(l) <=1,'appLabel repeat.'
     if len(l) == 1:
         return l[0]

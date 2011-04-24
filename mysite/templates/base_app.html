@@ -1,46 +1,18 @@
+{% extends "base_mobile.html" %}
 {% load media %}
 {% load theme %}
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>{% block title %}Page Title{% endblock %}</title>
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-<meta name="format-detection" content="telephone=no" />
-<link rel="shortcut icon" href="/s/favicon.ico" /> 
-<link rel="stylesheet" type="text/css" href="{% media_url %}/themes/{% theme %}/app.css" /> 
-</head>
-<body > 
-<div id="navbar"> 
-{% block navbar %}
-<div class="breadcrumbs homepage"> 
-<a href="../home/" class="homelink"> 
-<img src="{% media_url %}/themes/{% theme %}/imgs/homelink_h.png" width="62" height="36" alt="北邮 移动门户首页" /> 
-</a> 
-<div class="pagetitle"> 
-<img src="{% media_url %}/themes/{% theme %}/imgs/title-links.png" width="28" height="28" alt="" class="moduleicon" /> 
-常用链接 </div> 
-</div> 
-{% endblock %}
-</div> 
-<div id="container"> 
-{% block content %}
-<p class="nonfocal">注意：以下网址可能会链接到北邮校外的网站。</p> 
-<ul class="nav"> 
-<li><a class="external" href="http://www.bupt.edu.cn" onClick="javascript: pageTracker._trackPageview('/outgoing/links/www.bupt.edu.cn');">北京邮电大学</a></li> 
-<li><a class="external" href="http://www.buptnu.com.cn" onClick="javascript: pageTracker._trackPageview('/outgoing/links/www.buptnu.com.cn');">北邮网络学院</a></li> 
-<li><a class="external" href="http://lib.bupt.edu.cn" onClick="javascript: pageTracker._trackPageview('/outgoing/links/lib.bupt.edu.cn');">北邮图书馆</a></li> 
-<li><a class="external" href="http://www.buptnu.com.cn" onClick="javascript: pageTracker._trackPageview('/outgoing/links/www.buptnu.com.cn');">北邮财务处</a></li> 
-<li><a class="external" href="http://www.buptnu.com.cn" onClick="javascript: pageTracker._trackPageview('/outgoing/links/www.buptnu.com.cn');">北邮教务处</a></li> 
-<li><a class="external" href="http://www.buptnu.com.cn" onClick="javascript: pageTracker._trackPageview('/outgoing/links/www.buptnu.com.cn');">北邮学报</a></li> 
-</ul> 
-{% endblock %}
-</div> 
-<div id="footerlinks"><a href="#top">回到顶端</a> | <a href="../home/">掌上北邮首页</a></div> 
-<div id="footer"> 
-<img src="{% media_url %}/themes/{% theme %}/imgs/iet-logo.png" alt=""/> 教育技术研究所研制/维护
-</div> 
-</body> 
-</html> 
+
+{% block header %}
+<div id="navbar">
+	<div class="breadcrumbs homepage">
+		<a name="top" href="/"
+		class="homelink"><img src="{% media_url %}/themes/{% theme %}/button/homelink.png" width="57"
+		height="45" alt="主页" /></a>
+		{% block navbar %}{% endblock navbar %}
+	</div>
+</div>
+{% endblock header %}
+
+{% block footer %}
+<div id="footerlinks"><a href="#top">回到顶端</a> | <a href="/">首页</a></div>
+{% endblock footer %}

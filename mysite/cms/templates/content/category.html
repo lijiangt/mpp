@@ -1,29 +1,23 @@
+{% extends "base_app.html" %}
 {% load media %}
 {% load theme %}
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="content-type" content="application/xhtml+xml" />
-<title>{{category.name}}</title>
-<link rel="shortcut icon" href="/favicon.ico" />
-<link
-	href="{% media_url %}/themes/{% theme %}/common.css"
-	rel="stylesheet" media="all" type="text/css" />
-</head>
-<body>
-<div id="nonfooternav"><a name="top"></a>
-<div id="navbar">
-<div class="breadcrumbs homepage">
-	<a name="top" href="/"
-	class="homelink"><img src="{% media_url %}/themes/{% theme %}/button/homelink.png" width="57"
-	height="45" alt="主页" /></a>
-	{% if category.father %}
-	<a href="/content/{{ category.father.id }}/" class="module"><img src="{% media_url %}/themes/{% theme %}/button/uplink.png" width="28" height="28" alt="返回上一级" /></a>
-	{% endif %}
-	<span class="pagetitle">{{category.name}}</span></div>
-</div>
-<div id="container">
+
+{% block title %}{{category.name}}{% endblock title %}
+
+{% block navbar %}
+{% for father in father_stack %}
+	<a href="/content/{{ father.id }}/" class="module">
+	{% if father.icon %}
+		<img src="{% media_url %}{{ father.icon.url|urlencode }}" width="28" height="28" alt="{{father.name}}" />
+	{% else %}
+		{{father.name}}
+	{% endif %} 
+	</a>
+{% endfor %}
+<span class="pagetitle">{{category.name}}</span>
+{% endblock navbar%}
+
+{% block content %}
 <ul class="nav">
     {% if category.type == 10 %}
             {% for c in categories %}
@@ -41,12 +35,4 @@
     	{% endif %}
 	{% endif %} 
 </ul>
-
-<div id="footerlinks"><a href="#top">回到顶端</a> | <a href="../home/">掌上网院首页</a></div>
-<div id="footer"><a href="http://www.buptnu.com.cn"
-	class="copyright">&copy; 2011 北京邮电大学教育技术研究所</a></div>
-</div>
-</div>
-<!--nonfooternav -->
-</body>
-</html>
+{% endblock content %}

@@ -1,17 +1,19 @@
-{% extends "base_mobile.html" %}
-{% load call_phone %}}
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
 
-{% block title %}
-{{department.name}}
-{% endblock %}
+{% block title %}{{department.name}}{% endblock title %}
+
+{% block navbar %}
+<a href="/departments/" class="module">
+	<img src="/s/department.png" width="28" height="28" alt="返回部门列表" />
+</a>
+<span class="pagetitle">{{department.name}}</span>
+{% endblock navbar %}
 
 {% block content %}
-        <div class="toolbar">
-            	<a href="/departments#home"  target="_webapp" class="back">返回</a> 
-                <h1>{{department.name}}</h1>
-                <a class="button slideup" id="infoButton" href="#about">关于</a>
-            </div>
-        <div class="info">
+<div class="focal">
+<h2></h2>
             办公室：{{department.building}}－{{department.room}}房间  <a  target="_webapp" onclick="self.location.href='/bmap/{{department.id}}'" 
             href="/bmap/{{department.id}}">查看地图</a><br>
             {%if department.telephone %}
@@ -29,10 +31,10 @@
                 {%endif%}</li>
 			{% endfor %}
             {%endif%}   
-        </div>
-            
-        <div class="info">
-               {{department.description|safe}}
-        </div>
-               
-{% endblock %}
+</div>
+
+<div class="focal">
+<h2></h2>
+	{{department.description|safe}}
+</div>
+{% endblock content %}

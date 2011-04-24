@@ -1,26 +1,21 @@
+{% extends "base_mobile.html" %}
 {% load media %}
 {% load theme %}
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="content-type" content="application/xhtml+xml" />
-<title>{{page.local_name}}</title>
-<link rel="shortcut icon" href="{% media_url %}/favicon.ico" />
-<link
-	href="{% media_url %}/themes/{% theme %}/common.css"
-	rel="stylesheet" media="all" type="text/css" />
+
+{% block title %}{{page.local_name}}{% endblock title %}
+
+{% block extrahead %}
 <link
 	href="{% media_url %}/themes/{% theme %}/home.css"
 	rel="stylesheet" media="all" type="text/css" />
+{% endblock extrahead %}
 
-
-</head>
-<body>
-<div id="nonfooternav"><a name="top"></a>
+{% block header %}
 <h1 id="homelogo"><img src="{% media_url %}/logo.png"
 	alt="{{page.local_name}}" />{{page.local_name}}</h1>
-<div id="container">
+{% endblock header %}
+
+{% block content %}
 {% comment %}
 <div class="nonfocal" id="searchformcontainer">
 <form method="get" action="search.php">
@@ -39,19 +34,11 @@
 	src="{{app.getIconUrl|urlencode}}" alt="{{app.getName}}" /><br />
 {{app.getName}}</a></div>
 {% endfor %}
+</div>
 {% comment %}
 <p class="separator">&nbsp;</p>
 {% endcomment %}
-
-</div>
-<div id="footer"><a href="http://www.buptnu.com.cn"
-	class="copyright">&copy; 2011 北京邮电大学教育技术研究所</a></div>
-</div>
-</div>
-<!--nonfooternav -->
-</body>
-</html>
-
+{% endblock content %}
 
 
 

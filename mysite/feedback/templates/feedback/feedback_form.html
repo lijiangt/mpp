@@ -1,26 +1,22 @@
-{% extends "base_mobile.html" %}
+{% extends "base_app.html" %}
 {% load media %}
-{% block title %}
-意见反馈
-{% endblock %}
+{% load theme %}
+
+{% block title %}意见反馈{% endblock title %}
+
+{% block navbar %}	
+<span class="pagetitle">意见反馈</span>
+{% endblock navbar %}
 
 {% block content %}
-        <div class="toolbar">
-            	<a href="/#home" target="_webapp" class="back">主页</a> 
-                <h1>意见反馈</h1>
-                <a class="button slideup" id="infoButton" href="#about">关于</a>
-            </div>
-            
-            <div class="container">
+<div class="focal">
+<h2></h2>
     <form name="form" action="." method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <!-- 
     <input type="submit" value="提交" />
     <input type="reset"  value="重置">
-     -->
-     <a style="margin:0 10px;color:rgba(0,0,0,.9)" href="#" class="submit whiteButton">提交</a> 
+    <input type="button" value="取消并返回" onclick="self.location.href='{{ referer }}';"/>
     </form>
-            </div>
-  <a href="{{ referer }}" class="grayButton" target="_webapp" onclick="javascript:self.location.href='{{ referer }}';">取消并返回</a>
-{% endblock %}
+</div>
+{% endblock content %}
