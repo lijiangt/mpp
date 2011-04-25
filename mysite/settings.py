@@ -167,6 +167,9 @@ PAGES = {
            Provider('base.GenericApp',local_name='Weather Report',url='/weather/',iconUrl='/s/weather.png'),
            Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
            Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
+           Provider('base.GenericApp',local_name='Mobile Card',url='/s/mcard/index.html',iconUrl='/s/mcard.png'),
+           Provider('base.GenericApp',local_name='Mobile VOD',url='/s/mvod/index.html',iconUrl='/s/mvod.png'),
+           Provider('base.GenericApp',local_name='About Site',url='/about/',iconUrl='/s/about.png'),
                                                ]),
     'page-home':Page('Bupt Mobile Portal',providers=[
             Provider('cms.app.CmsApp',app_label='bupt_news'),
@@ -184,3 +187,6 @@ if False:
     print gettext_noop('Bupt Mobile Portal')
     print gettext_noop('Departments List')
     print gettext_noop('BUPT Map')
+    print gettext_noop('Mobile Card')
+    print gettext_noop('Mobile VOD')
+    print gettext_noop('About Site')

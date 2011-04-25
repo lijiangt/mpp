@@ -28,6 +28,9 @@ urlpatterns = patterns('',
     (r'^departments/',include('departments.urls')),
     (r'^bmap/',include('bmap.urls')), 
     (r'^weather/',include('weather.urls')),
+    (r'^about/$', direct_to_template, {
+        'template': 'about.html'
+        })
 )
 
 
