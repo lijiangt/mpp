@@ -331,3 +331,5 @@ msgstr "部门列表"
 msgid "BUPT Map"
 msgstr "校园地图"
 
+msgid "Schools List"
+msgstr "学院设置"

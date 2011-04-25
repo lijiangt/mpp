@@ -1,0 +1,18 @@
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
+{% load i18n %}
+
+{% block title %}{% trans 'Schools List' %}{% endblock title %}
+
+{% block navbar %}
+<span class="pagetitle">{% trans 'Schools List' %}</span>
+{% endblock navbar%}
+
+{% block content %}
+<ul class="nav">
+            {% for s in schl %}
+                <li><a href="{{s.id}}#home">{{s.name}}</a></li>
+			{% endfor %}
+</ul>
+{% endblock content %}
