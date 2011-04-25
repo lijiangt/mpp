@@ -2,15 +2,17 @@
 {% load media %}
 {% load theme %}
 
-{% block title %}{{building.name}}{% endblock title %}
+{% block title %}北京邮电大学位置{% endblock title %}
 
 
 {% block navbar %}
-<span class="pagetitle">{{building.name}}</span>
+<span class="pagetitle">北京邮电大学位置</span>
 {% endblock navbar %}
 
 {% block content %}
 <div class="focal">
+
+<!-- 
 <script type="text/javascript">
 window.addEventListener('load', function(){
 setTimeout(scrollTo, 0, 0, 1);
@@ -40,5 +42,12 @@ map.addOverlay(marker);
 </script>
 <div id="map_canvas" style="width: 285px; height: 235px"></div>
 <a href="http://maps.google.com/maps?sll={{building.latitude}},{{building.longitude}}">在谷歌地图中浏览</a>
+ -->
+<div class="map"><img border="0" 
+src="http://maps.google.com/maps/api/staticmap?center={{building.latitude}},{{building.longitude}}&amp;zoom=15&amp;size=280x280&amp;markers=color:blue|
+{{building.latitude}},{{building.longitude}}&amp;sensor=false" alt=""></div>
+
 </div> 
+
+
 {% endblock content %}
