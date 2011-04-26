@@ -13,28 +13,33 @@
 
 {% block content %}
 <div class="focal">
-<h2></h2>
-            办公室：{{department.building}}－{{department.room}}房间  <a  target="_webapp" onclick="self.location.href='/bmap/{{department.id}}'" 
-            href="/bmap/{{department.id}}">查看地图</a><br>
-            {%if department.telephone %}
-                 电话：<a  target="_blank"  href="tel:010{{department.telephone}}">{{department.telephone}}</a><br>
-            {%endif%}
+<h2>{{department.name}}简要介绍</h2>
+<p>{{department.description|safe}}</p>
+
+<!-- 
+			<a  target="_webapp" onclick="self.location.href='/bmap/{{department.id}}'" 
+            href="/bmap/{{department.id}}">查看地图</a>
+
+ -->
+			<div class="map"><img border="0" 
+			src="http://maps.google.com/maps/api/staticmap?center={{department.building.latitude}},{{department.building.longitude}}&amp;zoom=17&amp;size=280x280&amp;markers=color:blue|
+			{{department.building.latitude}},{{department.building.longitude}}&amp;sensor=false" alt=""></div>
             {%if department.website %}
-                部门主页：<a target="_blank"  href="{{department.website}}">{{department.website}}<br></a>
+				<pre>网址 <a a target="_blank"  href="http://{{department.website}}">{{department.website}}</a></pre>
+            {%endif%}
+</div>
+	<ul class="nav">
+	<li><h2>办公信息</h2></li>
+
+            {%if department.telephone %}
+    <li><a href="tel:010{{department.telephone}}" class="phone">办公室 ({{department.telephone}})</a></li>
             {%endif%}
                         
-            {%if subdepartments%}
-            {% for subdepartment in subdepartments %}
-                <li>{{subdepartment.name}}在{{subdepartment.room}}房间
-                {%if  subdepartment.telephone%}
-                电话：<a target="_blank"   href="tel:010{{subdepartment.telephone}}">{{subdepartment.telephone}}</a><br>
-                {%endif%}</li>
-			{% endfor %}
+            {%if subdep%}
+            {% for s in subdepartment %}
+    <li><a href="tel:010{{s.telephone}}" class="phone">{{s.name}}.{{s.building}}.{{s.room}} ({{s.telephone}})</a></li>
+ 			{% endfor %}
             {%endif%}   
-</div>
-
-<div class="focal">
-<h2></h2>
-	{{department.description|safe}}
+	</ul>
 </div>
 {% endblock content %}

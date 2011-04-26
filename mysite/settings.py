@@ -113,6 +113,7 @@ INSTALLED_APPS = (
     'mysite',
     'feedback',
     'departments',
+    'schl',
     'bmap',
     'weather'
 )
@@ -169,6 +170,7 @@ PAGES = {
            Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
            Provider('base.GenericApp',local_name='Mobile Card',url='/s/mcard/index.html',iconUrl='/s/mcard.png'),
            Provider('base.GenericApp',local_name='Mobile VOD',url='/s/mvod/index.html',iconUrl='/s/mvod.png'),
+           Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
            Provider('base.GenericApp',local_name='About Site',url='/about/',iconUrl='/s/about.png'),
                                                ]),
     'page-home':Page('Bupt Mobile Portal',providers=[
@@ -180,6 +182,7 @@ PAGES = {
             Provider('base.GenericApp',local_name='Weather Report',url='/weather/',iconUrl='/s/weather.png'),
             Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
             Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
+            Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
                                             ]),
 }
 
@@ -189,4 +192,5 @@ if False:
     print gettext_noop('BUPT Map')
     print gettext_noop('Mobile Card')
     print gettext_noop('Mobile VOD')
+    print gettext_noop('Schools List')
     print gettext_noop('About Site')

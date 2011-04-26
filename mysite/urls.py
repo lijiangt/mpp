@@ -23,10 +23,11 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^content/',include('cms.urls')),
     (r'^cms/',include('cms.urls_adm')),
-    (r'^department/',include('departments.urls')),
+    (r'^schl/',include('schl.urls')),
     (r'^feedback/',include('feedback.urls')),
     (r'^departments/',include('departments.urls')),
     (r'^bmap/',include('bmap.urls')), 
+    (r'^schl/',include('schl.urls')), 
     (r'^weather/',include('weather.urls')),
     (r'^about/$', direct_to_template, {
         'template': 'about.html'

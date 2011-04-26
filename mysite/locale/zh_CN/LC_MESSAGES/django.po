@@ -339,3 +339,7 @@ msgstr "校园媒体"
 
 msgid "About Site"
 msgstr "关于站点"
+
+msgid "Schools List"
+msgstr "学院设置"
+

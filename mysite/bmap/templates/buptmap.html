@@ -2,43 +2,20 @@
 {% load media %}
 {% load theme %}
 
-{% block title %}{{building.name}}{% endblock title %}
+{% block title %}北京邮电大学位置{% endblock title %}
 
 
 {% block navbar %}
-<span class="pagetitle">{{building.name}}</span>
+<span class="pagetitle">北京邮电大学位置</span>
 {% endblock navbar %}
 
 {% block content %}
 <div class="focal">
-<script type="text/javascript">
-window.addEventListener('load', function(){
-setTimeout(scrollTo, 0, 0, 1);
-initialize();
-}, false);
-</script>
-<a name="scrolldown"></a>
 
-{{building.name}}
-<img src="{% load media %}{% media_url %}/department.png" height="20" width="17" alt="Marker" />
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAdm4RxT_sqwwAfqqfvQhjzhRAu4zTk53ev3LBrNGdMaxAjyCXDBQ3FfPNid6C9ZnkfzkNu7VNoSHCIQ" type="text/javascript"></script>
-<script type="text/javascript">
-function initialize() {
-var map = new GMap2(document.getElementById("map_canvas"));
-map.setUIToDefault();
-map.setCenter(new GLatLng({{building.latitude}},{{building.longitude}}), 15);
-var point = new GLatLng({{building.latitude}},{{building.longitude}});
-var baseIcon = new GIcon(G_DEFAULT_ICON);
-baseIcon.image = "{% load media %}{% media_url %}/department.png";
-baseIcon.shadow = "{% load media %}{% media_url %}/shadow.png";
-baseIcon.iconSize = new GSize(32, 37);
-baseIcon.shadowSize = new GSize(51, 37);
-markerOptions = { icon:baseIcon };
-var marker = new GMarker(point, markerOptions);
-map.addOverlay(marker);
-}
-</script>
-<div id="map_canvas" style="width: 285px; height: 235px"></div>
-<a href="http://maps.google.com/maps?sll={{building.latitude}},{{building.longitude}}">在谷歌地图中浏览</a>
+
+<div class="map"><img border="0" 
+src="http://maps.google.com/maps/api/staticmap?center={{building.latitude}},{{building.longitude}}&amp;zoom=15&amp;size=280x280&amp;markers=color:blue|
+{{building.latitude}},{{building.longitude}}&amp;sensor=false" alt></div>
+
 </div> 
 {% endblock content %}
