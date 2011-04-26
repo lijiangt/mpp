@@ -19,19 +19,27 @@
 
 {% block content %}
 <div class="focal">
+<p class="smallprint" style="border-bottom: 1px dotted;margin-bottom: 1.33em;
+margin-top: 10px;min-height: 20px;
+padding-bottom: 0.33em;">发布时间：{{article.posted|date:"Y-m-d G:i"}}</p>         
+<div class="content">   
+            	{% if article.pic %}
+            	<img src="{% media_url %}{{ article.pic.url|urlencode }}" style="float:right;height:150px;padding-left-width:12px"/>
+            	{% endif %} 
+<p> {{article.content|safe}}</p>
+
+</div>
+
+
 <h2></h2>
             	<p>
-            	发布时间：{{article.posted|date:"Y-m-d G:i"}}
+            	发布时间：
             	</p>
             	<p>
-            	{% if article.pic %}
-            	<img src="{% media_url %}{{ article.pic.url|urlencode }}"/>
-            	{% else %}
-            	  <br />
-            	{% endif %}
+
             	</p>
             	<p>
-               {{article.content|safe}}
+              
              </p>
 </div>
 {% endblock content %}

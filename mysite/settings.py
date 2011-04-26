@@ -171,7 +171,8 @@ PAGES = {
            Provider('base.GenericApp',local_name='Mobile Card',url='/s/mcard/index.html',iconUrl='/s/mcard.png'),
            Provider('base.GenericApp',local_name='Mobile VOD',url='/s/mvod/index.html',iconUrl='/s/mvod.png'),
            Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
-           Provider('base.GenericApp',local_name='About Site',url='/about/',iconUrl='/s/about.png'),
+#           Provider('base.GenericApp',local_name='About Site',url='/about/',iconUrl='/s/about.png'),
+           Provider('cms.app.CmsApp',app_label='about_cn'),
                                                ]),
     'page-home':Page('Bupt Mobile Portal',providers=[
             Provider('cms.app.CmsApp',app_label='bupt_news'),

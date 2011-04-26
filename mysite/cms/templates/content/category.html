@@ -30,7 +30,7 @@
 			{% endfor %}    	
     	{% else %}
 	    	{% for article in articles %}
-	            <li><a href="{{article.id}}">{{article.title}}</a></li>
+	            <li><a href="{{article.id}}">{{article.title}}<div class="smallprint"><i>发布时间：{{article.posted|date:"Y-m-d G:i"}}</i></div></a></li>
 			{% endfor %}
     	{% endif %}
 	{% endif %} 
