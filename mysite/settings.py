@@ -168,7 +168,7 @@ PAGES = {
            Provider('base.GenericApp',local_name='Weather Report',url='/weather/',iconUrl='/s/weather.png'),
            Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
            Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
-           Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.ico'),
+           Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
                                                ]),
     'page-home':Page('Bupt Mobile Portal',providers=[
             Provider('cms.app.CmsApp',app_label='bupt_news'),
@@ -179,7 +179,7 @@ PAGES = {
             Provider('base.GenericApp',local_name='Weather Report',url='/weather/',iconUrl='/s/weather.png'),
             Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
             Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
-            Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.ico'),
+            Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
                                             ]),
 }
 
