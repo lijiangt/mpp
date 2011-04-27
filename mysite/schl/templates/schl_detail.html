@@ -13,24 +13,20 @@
 
 
 {% block content %}
-<div class="focal">
-<h2>{{schl.name}}简要介绍</h2>
-<p>{{schl.description|safe}}</p>
 
-            {%if schl.website %}
-				<pre>网址 <a a target="_blank"  href="http://{{schl.website}}">{{schl.website}}</a></pre>
-            {%endif%}
-</div>
+	<div class="focal">
+	<h2>简要介绍</h2>
+	<p>{{schl.description|safe}}</p>
+	</div>
+
 	<ul class="nav">
-	<li><h2>办公信息</h2></li>
-
+	<li><h2>学院机构</h2></li>
             {%if schl.telephone %}
-    <li><a href="tel:010{{schl.telephone}}" class="phone">办公室 ({{schl.telephone}})</a></li>
+	    <li><a href="tel:010{{schl.telephone}}" class="phone">办公室 ({{schl.telephone}})</a></li>
             {%endif%}
-                        
             {%if subdep%}
             {% for s in subdep %}
-    <li><a href="tel:010{{s.telephone}}" class="phone">{{s.name}}.{{s.building}}.{{s.room}} ({{s.telephone}})</a></li>
+	    <li><a href="tel:010{{s.telephone}}" class="phone">{{s.name}}.{{s.building}}.{{s.room}} ({{s.telephone}})</a></li>
  			{% endfor %}
             {%endif%}   
 
