@@ -326,10 +326,23 @@ msgid "Bupt Mobile Portal"
 msgstr "北邮移动门户"
 
 msgid "Departments List"
-msgstr "部门列表"
+msgstr "管理机构"
 
 msgid "BUPT Map"
 msgstr "校园地图"
 
+msgid "Mobile Card"
+msgstr "校园一卡通"
+
+msgid "Mobile VOD"
+msgstr "校园媒体"
+
+msgid "About Site"
+msgstr "关于站点"
+
 msgid "Schools List"
-msgstr "学院设置"
+msgstr "学院介绍"
+
+msgid "Mobile Library"
+msgstr "掌上图书馆"
+

@@ -1,0 +1,21 @@
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
+{% load i18n %}
+
+{% block title %}{% trans 'Buidlings List' %}{% endblock title %}
+
+{% block navbar %}
+<a href="/bmap/" class="module">
+	<img src="/s/map.png" width="28" height="28" alt="返回建筑列表" />
+</a>
+<span class="pagetitle">校内建筑列表</span>
+{% endblock navbar %}
+
+{% block content %}
+<ul class="nav">
+            {% for b in buildings %}
+                <li><a target="_self" href="{{b.id}}#home" class="arrow">{{b.name}}</a></li>
+			{% endfor %}
+</ul>
+{% endblock content %}

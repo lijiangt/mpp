@@ -1,0 +1,22 @@
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
+{% load i18n %}
+
+{% block title %}{% trans 'BUPT Map' %}{% endblock title %}
+{% block navbar %}
+<a href="/bmap/" class="module">
+	<img src="/s/map.png" width="28" height="28" alt="返回部门列表" />
+</a>
+<span class="pagetitle">{% trans 'BUPT Map' %}</span>
+{% endblock navbar %}
+{% block content %}
+	<ul class="nav">
+	<li><a a target="_self" href="c#home" class="arrow">市内交通</a></li>
+	<li><a a target="_self" href="g#home" class="map">查看学校位置</a></li>
+	<li><a a target="_self" href="d#home" class="arrow">办公室查询</a></li>
+	<li><a a target="_self" href="b#home" class="arrow">校内建筑查询</a></li>
+    </ul>
+</div>
+{% endblock content %}
+

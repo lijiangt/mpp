@@ -22,7 +22,7 @@
 			{{department.building.latitude}},{{department.building.longitude}}&amp;sensor=false" alt=""></div>
 
  -->
-<h3 class="nonfocal">相关信息</h3>
+<h3 class="nonfocal">办公信息</h3>
 	<ul class="nav"><li>
             {%if department.website %}
 			<a a target="_blank" href="{{department.website}}" class="external"><div class="smallprint">部门网站</div>{{department.website}}</a>	
@@ -31,7 +31,9 @@
             {%if department.telephone %}
 		<li><a href="tel:{{department.telephone}}" class="phone"><div class="smallprint">办公电话</div>{{department.telephone}}</a></li>
             {%endif%}
+            {%if department.building %}
 		<li><a href="/bmap/{{department.id}}" class="map"><div class="smallprint">办公地点</div>{{department.building}}.{{department.room}}</a></li>
+            {%endif%}
 		</ul>
           {%if subdepartments%}
 	<h3 class="nonfocal">科室信息</h3>

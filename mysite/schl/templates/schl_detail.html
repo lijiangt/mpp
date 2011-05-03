@@ -1,37 +1,38 @@
 {% extends "base_app.html" %}
 {% load media %}
 {% load theme %}
-
 {% block title %}{{schl.name}}{% endblock title %}
-
 {% block navbar %}
 <a href="/schl/" class="module">
 	<img src="/s/schl.png" width="28" height="28" alt="返回学院列表" />
 </a>
 <span class="pagetitle">{{schl.name}}</span>
 {% endblock navbar %}
-
-
 {% block content %}
-
-	<div class="focal">
-	<h2>简要介绍</h2>
-	<p>{{schl.description|safe}}</p>
-	</div>
-
-	<ul class="nav">
-	<li><h2>学院机构</h2></li>
-            {%if schl.telephone %}
-	    <li><a href="tel:010{{schl.telephone}}" class="phone">办公室 ({{schl.telephone}})</a></li>
-            {%endif%}
-            {%if subdep%}
-            {% for s in subdep %}
-	    <li><a href="tel:010{{s.telephone}}" class="phone">{{s.name}}.{{s.building}}.{{s.room}} ({{s.telephone}})</a></li>
- 			{% endfor %}
-            {%endif%}   
-
-	</ul>
-
+<h3 class="nonfocal">学院介绍</h3>
+<div class="focal">
+<p>{{schl.description|safe}}</p>
 </div>
-
+<h3 class="nonfocal">办公信息</h3>
+	<ul class="nav"><li>
+            {%if schl.website %}
+			<a a target="_blank" href="{{schl.website}}" class="external"><div class="smallprint">学院网站</div>{{schl.website}}</a>	
+            {%endif%}
+		</li>
+            {%if schl.telephone %}
+		<li><a href="tel:{{schl.telephone}}" class="phone"><div class="smallprint">办公电话</div>{{schl.telephone}}</a></li>
+            {%endif%}
+            {%if schl.building %}
+		<li><a href="/bmap/{{schl.id}}" class="map"><div class="smallprint">办公地点</div>{{schl.building}}.{{schl.room}}</a></li>
+            {%endif%}
+		</ul>
+          {%if subdep%}
+	<h3 class="nonfocal">其他信息</h3>
+		<ul class="nav">
+            {% for s in subdep%}
+			<li><a href="tel:{{s.telephone}}" class="phone"><div class="smallprint">{{s.name}}</div>{{s.building}}.{{s.room}} 电话{{s.telephone}}</a></li>
+			{%endfor%}
+		</ul>
+		{%endif%}
+</div>
 {% endblock content %}

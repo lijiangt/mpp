@@ -5,13 +5,19 @@
 
 {% block title %}{% trans 'Departments List' %}{% endblock title %}
 
+
 {% block navbar %}
-<span class="pagetitle">{% trans 'Building List' %}</span>
-{% endblock navbar%}
+<a href="/bmap/" class="module">
+	<img src="/s/map.png" width="28" height="28" alt="返回部门列表" />
+</a>
+
+<span class="pagetitle">管理机构列表</span>
+{% endblock navbar %}
+
 
 {% block content %}
 <ul class="nav">
-            {% for b in buildings %}
+            {% for b in departments %}
                 <li><a href="{{b.id}}#home">{{b.name}}</a></li>
 			{% endfor %}
 </ul>
