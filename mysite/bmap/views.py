@@ -14,7 +14,7 @@ def buildinglist(request):
     return render_to_response('building_list.html',
                 {'buildings':Building.objects.all()},
                 context_instance=RequestContext(request))
-def gmap(request,id = None):
+def gmap(request):
     """BUPT on google map """
     return render_to_response('gmap.html',
                 {'building':get_object_or_404(Building,id=0),},
