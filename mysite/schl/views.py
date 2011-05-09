@@ -11,5 +11,5 @@ def schl_detail(request,id):
 
 def schl_list(request):
     return render_to_response('schl_list.html',{
-                'schl':School.objects.all(),
+                'schl':School.objects.order_by("-name"),
                 },context_instance=RequestContext(request))
