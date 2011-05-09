@@ -1,0 +1,28 @@
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
+{% load i18n %}
+
+{% block title %}到校交通指南{% endblock title %}
+{% block navbar %}
+<a href="/bmap/" class="module">
+	<img src="/s/map.png" width="28" height="28" alt="返回部门列表" />
+</a>
+<span class="pagetitle">市内交通指南</span>
+{% endblock navbar %}
+{%block content%}
+		<div class="focal">
+			<h3>本校地址</h3>
+			北京市海淀区西土城路10号 （100876）
+		</div>
+		<h3 class="nonfocal">到达校本部：</h3>
+	<ul class="nav">
+	<li><div><div class="smallprint">北京站</div>乘地铁2号线至西直门，换乘公交632路、375路、16路明光桥北下车</div></li>
+	<li><div><div class="smallprint">北京西站</div>乘坐 387、845、702、845快、21 路至明光桥北下车</div></li>
+	<li><div><div class="smallprint">北京南站</div>乘地铁4号线至西直门，换乘公交632路、375路、16路明光桥北下车</div></li>
+	<li><div><div class="smallprint">北京北站</div>398路、490路、392路明光桥北下车</div></li>
+	<li><div><div class="smallprint">首都国际机场</div>机场大巴（至公主坟）在北太平桥西下车</div></li>
+	<li><div><div class="smallprint">南苑机场</div>机场大巴至西单，换乘公交604路明光桥北下车</div></li>
+ 		</ul>
+{% endblock content %}
+

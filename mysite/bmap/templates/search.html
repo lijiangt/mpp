@@ -2,12 +2,12 @@
 {% load media %}
 {% load theme %}
 
-{% block title %}{{building.name}}{% endblock title %}
+{% block title %}{{schl.name}}{% endblock title %}
 
 
 {% block navbar %}
 <a href="/bmap/" class="module">
-	<img src="/s/map.png" width="28" height="28" alt="返回部门列表" />
+	<img src="/s/schl.png" width="28" height="28" alt="返回部门列表" />
 </a>
 <span class="pagetitle">{{building.name}}</span>
 
@@ -15,8 +15,15 @@
 
 {% block content %}
 <div class="focal">
+
+be foudnd hh
+{{filter}}
+</div>
+<!-- 
 <div class="map"><img border="0" 
-src="http://maps.google.com/maps/api/staticmap?center={{building.latitude}},{{building.longitude}}&amp;zoom=17&amp;size=275x300&amp;markers=color:blue|
+src="http://maps.google.com/maps/api/staticmap?center={{building.latitude}},{{building.longitude}}&amp;zoom=15&amp;size=275x300&amp;markers=color:blue|
 {{building.latitude}},{{building.longitude}}&amp;sensor=false" alt></div>
 </div> 
+
+ -->
 {% endblock content %}

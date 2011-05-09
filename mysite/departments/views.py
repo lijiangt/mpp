@@ -11,6 +11,6 @@ def department_detail(request,id):
 
 def department_list(request):
     return render_to_response('department_list.html',{
-                'departments':Department.objects.all(),
+                'departments':Department.objects.order_by("-name"),
                 },context_instance=RequestContext(request))
     

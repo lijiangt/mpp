@@ -6,13 +6,17 @@
 {% block title %}{% trans 'Departments List' %}{% endblock title %}
 
 {% block navbar %}
+<a href="/bmap/" class="module">
+	<img src="/s/map.png" width="28" height="28" alt="{% trans 'Departments List' %}" />
+</a>
 <span class="pagetitle">{% trans 'Departments List' %}</span>
-{% endblock navbar%}
+{% endblock navbar %}
+
 
 {% block content %}
 <ul class="nav">
             {% for b in departments %}
-                <li><a href="{{b.id}}#home">{{b.name}}</a></li>
+                <li><a href="d/{{b.id}}#home">{{b.name}}</a></li>
 			{% endfor %}
 </ul>
 {% endblock content %}

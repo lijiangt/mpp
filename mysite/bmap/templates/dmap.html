@@ -1,0 +1,19 @@
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
+
+{% block title %}{{department.name}}{% endblock title %}
+
+{% block navbar %}
+<a href="/bmap/" class="module">
+	<img src="/s/map.png" width="28" height="28" alt="返回部门列表" />
+</a>
+<span class="pagetitle">{{department.name}}</span>
+{%endblock navbar%}
+{% block content %}
+<div class="focal">
+<div class="map"><img border="0" 
+src="http://maps.google.com/maps/api/staticmap?center={{department.building.latitude}},{{department.building.longitude}}&amp;zoom=17&amp;size=275x300&amp;markers=color:blue|
+{{department.building.latitude}},{{department.building.longitude}}&amp;sensor=false" alt></div>
+</div> 
+{% endblock content %}

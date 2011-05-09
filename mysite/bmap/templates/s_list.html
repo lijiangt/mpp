@@ -1,0 +1,21 @@
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
+{% load i18n %}
+
+{% block title %}{% trans 'Schools List' %}{% endblock title %}
+
+{% block navbar %}
+<a href="/bmap/" class="module">
+	<img src="/s/schl.png" width="28" height="28" alt="{% trans 'Schools List' %}"/>
+</a>
+<span class="pagetitle">{% trans 'Schools List' %}</span>
+{% endblock navbar%}
+
+{% block content %}
+<ul class="nav">
+            {% for s in schl %}
+                <li><a href="{{s.id}}#home">{{s.name}}</a></li>
+			{% endfor %}
+</ul>
+{% endblock content %}
