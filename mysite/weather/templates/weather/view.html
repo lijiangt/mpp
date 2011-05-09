@@ -11,8 +11,8 @@
 
 {% block content %}
 <ul class="nav">
-{% for entry in entries %}
-<li>{{ entry.title }} {{ entry.description }}</li>
+{% for entry in result.forecasts %}
+<li>{{ entry.day_of_week }}<img src="http://www.google.com{{ entry.icon }}"/> {{ entry.low }}-{{ entry.high }} {{ entry.condition }}</li>
 {% endfor %}
 </ul>
 
