@@ -26,7 +26,7 @@
 		<li><a href="/bmap/d/{{department.id}}" class="map"><div class="smallprint">办公地点</div>{{department.building}}.{{department.room}}</a></li>
             {%endif%}
 		</ul>
-          {%if subdepartments%
+          {%if subdepartments%}
 	<h3 class="nonfocal">科室信息</h3>
 		<ul class="nav">
             {% for s in subdepartments %}
