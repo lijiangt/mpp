@@ -1,4 +1,4 @@
-完善天气预报 使用https://code.google.com/p/python-weather-api(sudo apt-get install python-pywapi)或者https://github.com/tupton/python-yahoo-weather
+完善天气预报 使用https://code.google.com/p/python-weather-api
 http://weather.yahooapis.com/forecastrss?w=2151330&u=c
 rss加缓存及编码处理 参考： http://obmem.info/?p=717  http://code.google.com/p/django-cron/wiki/Install
 美化、完善界面
