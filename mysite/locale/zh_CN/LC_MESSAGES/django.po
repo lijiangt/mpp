@@ -341,12 +341,25 @@ msgid "About Site"
 msgstr "关于站点"
 
 msgid "Schools List"
-<<<<<<< HEAD
-msgstr "学院设置"
-=======
 msgstr "学院介绍"
 
 msgid "Mobile Library"
 msgstr "掌上图书馆"
->>>>>>> schl
 
+msgid "Mobile Dinning"
+msgstr "餐饮服务"
+
+msgid "Course Info"
+msgstr "课程信息"
+
+msgid "Campus Cam"
+msgstr "校园传感器"
+
+msgid "Talk to President"
+msgstr "校长直通车"
+
+msgid "Campus Navi"
+msgstr "校园导览"
+
+msgid "Mobile OA"
+msgstr "移动OA"

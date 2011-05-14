@@ -13,6 +13,15 @@
 <div class="focal">
 <p>{{department.description|safe}}</p>
 </div>
+<!-- 
+			<a  target="_webapp" onclick="self.location.href='/bmap/{{department.id}}'" 
+            href="/bmap/{{department.id}}">查看地图</a>
+
+			<div class="map"><img border="0" 
+			src="http://maps.google.com/maps/api/staticmap?center={{department.building.latitude}},{{department.building.longitude}}&amp;zoom=17&amp;size=275x200&amp;markers=color:blue|
+			{{department.building.latitude}},{{department.building.longitude}}&amp;sensor=false" alt=""></div>
+
+ -->
 <h3 class="nonfocal">办公信息</h3>
 	<ul class="nav"><li>
             {%if department.website %}

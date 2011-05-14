@@ -3,6 +3,20 @@
 {% load theme %}
 
 {% block title %}新功能建议{% endblock title %}
+{% block extrahead %}
+<style type="text/css">
+#formTable th{
+	text-align:right;
+}
+#formTable input{
+	width:160px;
+}
+#formTable textarea{
+	width:160px;
+	height:90px;
+}
+</style>
+{% endblock extrahead %}
 
 {% block navbar %}	
 <span class="pagetitle">新功能建议</span>
@@ -13,10 +27,14 @@
 <h2></h2>
     <form name="form" action="." method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+<table id="formTable">
+    {{ form.as_table }}
+</table>
+<p>
     <input type="submit" value="提交" />
     <input type="reset"  value="重置">
     <input type="button" value="取消并返回" onclick="self.location.href='{{ referer }}';"/>
+</p>
     </form>
 </div>
 {% endblock content %}

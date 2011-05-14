@@ -160,19 +160,26 @@ EXTEND_HTTP_METHOD='__http_method'
 from base import Page,Provider
 PAGES = {
     'page-home-cn':Page('Bupt Mobile Portal',providers=[
+           Provider('cms.app.CmsApp',app_label='today_event_cn'),
            Provider('cms.app.CmsApp',app_label='bupt_news_cn'),
+           Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
+           Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
            Provider('cms.app.CmsApp',app_label='school_info_cn'),
-           Provider('cms.app.CmsApp',app_label='fast_track_cn'),
+#           Provider('cms.app.CmsApp',app_label='fast_track_cn'),
            Provider('cms.app.CmsApp',app_label='bus_info_cn'),
            Provider('cms.app.CmsApp',app_label='security_info_cn'),
            Provider('base.GenericApp',local_name='Weather Report',url='/weather/',iconUrl='/s/weather.png'),
-           Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
            Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
-           Provider('base.GenericApp',local_name='Mobile Card',url='/s/mcard/index.html',iconUrl='/s/mcard.png'),
-           Provider('base.GenericApp',local_name='Mobile VOD',url='/s/mvod/index.html',iconUrl='/s/mvod.png'),
-           Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
-#           Provider('base.GenericApp',local_name='About Site',url='/about/',iconUrl='/s/about.png'),
-           Provider('cms.app.CmsApp',app_label='about_cn'),
+#           Provider('base.GenericApp',local_name='Mobile Card',url='/s/mcard/index.html',iconUrl='/s/mcard.png'),
+#           Provider('base.GenericApp',local_name='Mobile VOD',url='/s/mvod/index.html',iconUrl='/s/mvod.png'),
+#           Provider('base.GenericApp',local_name='Mobile Library',url='/s/mlibrary/index.html',iconUrl='/s/mlibrary.png'),
+#           Provider('base.GenericApp',local_name='Mobile Dinning',url='/s/mdinner/index.html',iconUrl='/s/mdinner.png'),
+#	   Provider('base.GenericApp',local_name='Course Info',url='/s/mcourse/index.html',iconUrl='/s/mcourse.png'),
+#	   Provider('base.GenericApp',local_name='Campus Cam',url='/s/mcam/index.html',iconUrl='/s/mcam.png'),
+#	   Provider('base.GenericApp',local_name='Talk to President',url='/s/mguestbook/index.html',iconUrl='/s/mgustbook.png'),
+#		   Provider('base.GenericApp',local_name='Campus Navi',url='/s/mcampus/index.html',iconUrl='/s/mcampus.png'),
+#			   Provider('base.GenericApp',local_name='Mobile OA',url='/s/moa/index.html',iconUrl='/s/moa.png'),
+   #           Provider('cms.app.CmsApp',app_label='about_cn'),
                                                ]),
     'page-home':Page('Bupt Mobile Portal',providers=[
             Provider('cms.app.CmsApp',app_label='bupt_news'),
@@ -184,6 +191,15 @@ PAGES = {
             Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
             Provider('base.GenericApp',local_name='BUPT Map',url='/bmap/',iconUrl='/s/map.png'),
             Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
+#           Provider('base.GenericApp',local_name='Mobile Card',url='/s/mcard/index.html',iconUrl='/s/mcard.png'),
+#           Provider('base.GenericApp',local_name='Mobile VOD',url='/s/mvod/index.html',iconUrl='/s/mvod.png'),
+#           Provider('base.GenericApp',local_name='Mobile Library',url='/s/mlibrary/index.html',iconUrl='/s/mlibrary.png'),
+#           Provider('base.GenericApp',local_name='Mobile Dinning',url='/s/mdinner/index.html',iconUrl='/s/mdinner.png'),
+#       Provider('base.GenericApp',local_name='Course Info',url='/s/mcourse/index.html',iconUrl='/s/mcourse.png'),
+#       Provider('base.GenericApp',local_name='Campus Cam',url='/s/mcam/index.html',iconUrl='/s/mcam.png'),
+#       Provider('base.GenericApp',local_name='Talk to President',url='/s/mguestbook/index.html',iconUrl='/s/mgustbook.png'),
+#           Provider('base.GenericApp',local_name='Campus Navi',url='/s/mcampus/index.html',iconUrl='/s/mcampus.png'),
+#               Provider('base.GenericApp',local_name='Mobile OA',url='/s/moa/index.html',iconUrl='/s/moa.png'),
                                             ]),
 }
 
@@ -192,6 +208,7 @@ if False:
     print gettext_noop('Departments List')
     print gettext_noop('BUPT Map')
     print gettext_noop('Mobile Card')
+    print gettext_noop('Mobile Library')
     print gettext_noop('Mobile VOD')
     print gettext_noop('Schools List')
     print gettext_noop('About Site')

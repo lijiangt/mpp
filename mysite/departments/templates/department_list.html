@@ -11,8 +11,8 @@
 
 {% block content %}
 <ul class="nav">
-            {% for b in departments %}
-                <li><a href="{{b.id}}#home">{{b.name}}</a></li>
+            {% for department in departments %}
+                <li><a href="{{department.id}}#home">{{department.name}}</a></li>
 			{% endfor %}
 </ul>
 {% endblock content %}

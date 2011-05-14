@@ -19,9 +19,11 @@
 
 {% block content %}
 <div class="focal">
+{% if category.appLabel != 'about_cn' %}
 <p class="smallprint" style="border-bottom: 1px dotted;margin-bottom: 1.33em;
 margin-top: 10px;min-height: 20px;
-padding-bottom: 0.33em;">发布时间：{{article.posted|date:"Y-m-d G:i"}}</p>         
+padding-bottom: 0.33em;">发布时间：{{article.posted|date:"Y-m-d G:i"}}</p> 
+{% endif %}
 <div class="content">   
             	{% if article.pic %}
             	<img src="{% media_url %}{{ article.pic.url|urlencode }}" style="float:right;height:150px;padding-left-width:12px"/>
@@ -30,16 +32,5 @@ padding-bottom: 0.33em;">发布时间：{{article.posted|date:"Y-m-d G:i"}}</p>
 
 </div>
 
-
-<h2></h2>
-            	<p>
-            	发布时间：
-            	</p>
-            	<p>
-
-            	</p>
-            	<p>
-              
-             </p>
 </div>
 {% endblock content %}

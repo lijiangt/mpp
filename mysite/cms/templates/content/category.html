@@ -24,7 +24,7 @@
                 <li><a href="/content/{{c.id}}/">{{c.name}}</a></li>
 			{% endfor %}
     {% else %}
-    	{% if category.type == 50 %}
+    	{% if category.type == 50 or category.appLabel == 'about_cn' %}
 			{% for article in articles %}
            		<li><a href="{{article.id}}">{{article.title}}</a></li>
 			{% endfor %}    	

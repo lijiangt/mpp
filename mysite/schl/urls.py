@@ -4,5 +4,5 @@ import views
 
 urlpatterns = patterns('',
    (r'^$',views.schl_list),
-   (r'^(?P<id>\d*)/$',views.schl_detail),
+   (r'^(?P<id>\d+)/$',views.schl_detail),
    )
