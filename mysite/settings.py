@@ -207,8 +207,17 @@ if False:
     print gettext_noop('Bupt Mobile Portal')
     print gettext_noop('Departments List')
     print gettext_noop('BUPT Map')
-    print gettext_noop('Mobile Card')
-    print gettext_noop('Mobile Library')
-    print gettext_noop('Mobile VOD')
     print gettext_noop('Schools List')
+
     print gettext_noop('About Site')
+    
+    print gettext_noop('Mobile Card')
+    print gettext_noop('Mobile VOD')
+    print gettext_noop('Mobile Library')
+    print gettext_noop('Mobile Dinning')
+    print gettext_noop('Course Info')  
+    print gettext_noop('Campus Cam')
+    print gettext_noop('Talk to President')
+    print gettext_noop('Campus Navi')
+    print gettext_noop('Mobile OA')
+
