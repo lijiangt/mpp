@@ -1,4 +1,4 @@
-#Mon Apr 25 09:51:02 CST 2011
+#Tue May 17 20:56:47 CST 2011
 eclipse.preferences.version=1
 encoding//mysite/cms/views_adm.py=utf-8
 encoding//mysite/common/middleware.py=utf-8
@@ -8,4 +8,5 @@ encoding//mysite/departments/models.py=utf-8
 encoding//mysite/schl/models.py=utf-8
 encoding//mysite/settings.py=utf-8
 encoding//mysite/templatetags/title_field_html.py=utf-8
+encoding//mysite/wurfl.py=utf-8
 encoding/<project>=UTF-8
