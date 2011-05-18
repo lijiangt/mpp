@@ -17,8 +17,12 @@
 <img src="{% media_url %}/logo.png" width="265" height="45"
 	alt="{{page.local_name}}" />
 -->
+{% ifequal style_group "groups-smart" %}
 	<img src="{% media_url %}/logo-home.png" width="265" height="45"
         alt="{{page.local_name}}" />
+{% else %}
+{{page.local_name}}
+{% endifequal %}
 </h1>
 {% endblock header %}
 
@@ -42,31 +46,41 @@
 	<div class="springboard" id="homegrid">
 {% for app in apps %}
 	<div><a href="{{app.getUrl}}">
+{% ifequal style_group "groups-smart" %}
 		<img
 	src="{{app.getIconUrl|urlencode}}" alt="{{app.getName}}" /><br />
+{% endifequal %}
 {{app.getName}}</a>
 	</div>
 {% endfor %}
 <p class="separator">&nbsp;</p>
 	<div class="utility"><a href="/content/2/"> 
+{% ifequal style_group "groups-smart" %}
 		<img
 	src="{% media_url %}/fast_track.png" alt="快速通道" /><br /> 
+{% endifequal %}
 快速通道</a> 
 	</div> 
 <div class="utility">
 <a href="http://www.bupt.edu.cn">
-<img src="{% media_url %}/fullweb.png" alt="桌面网站" />
-<br/>桌面网站</a>
+{% ifequal style_group "groups-smart" %}
+<img src="{% media_url %}/fullweb.png" alt="桌面网站" /><br/>
+{% endifequal %}
+桌面网站</a>
 </div>
 	<div class="utility"><a href="/feedback/feature-suggestions/"> 
+{% ifequal style_group "groups-smart" %}
 		<img
 	src="{% media_url %}/suggestion.png" alt="功能建议" /><br /> 
+{% endifequal %}
 功能建议</a> 
 	</div>
 <div class="utility">
-<a href="/content/16/"> 
-		<img src="{% media_url %}/about.png" alt="关于站点" />
-<br />关于站点</a> 
+<a href="/content/16/">
+{% ifequal style_group "groups-smart" %} 
+		<img src="{% media_url %}/about.png" alt="关于站点" /><br />
+{% endifequal %}
+关于站点</a> 
 </div> 
 	</div>
 {% comment %}

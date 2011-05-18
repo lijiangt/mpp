@@ -9,12 +9,20 @@
 <link rel="shortcut icon" href="/s/favicon.ico" />
 <meta name="HandheldFriendly" content="true" />
 <meta name="viewport" id="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+{% ifequal style_group "groups-smart" %}
 <link
 	href="{% media_url %}/themes/{% theme %}/common.css"
 	rel="stylesheet" media="all" type="text/css" />
+{% else %}
+<link
+	href="{% media_url %}/themes/{% theme %}/common-basic.css"
+	rel="stylesheet" media="all" type="text/css" />
+{% endifequal %}
+{% if use_javascript %}
 <script type="text/javascript">
 try{scrollTo(0,1);}catch(e){}
 </script>
+{% endif %}
 {% block extrahead %}{% endblock extrahead %}
 </head>
 <body>

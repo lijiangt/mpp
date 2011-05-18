@@ -7,12 +7,11 @@
 {% block navbar %}
 {% for father in father_stack %}
 	<a href="/content/{{ father.id }}/" class="module">
-	{% if father.icon %}
-		<img src="{% media_url %}{{ father.icon.url|urlencode }}" width="28" height="28" alt="{{father.name}}" />
-	{% else %}
-		{{father.name}}
-	{% endif %} 
-	</a>
+{% ifequal style_group "groups-smart" %}
+{% if father.icon %}
+	<img src="{% media_url %}{{ father.icon.url|urlencode }}" width="28" height="28" alt="{{father.name}}" />
+{% else %}
+	{{father.name}}{% endif %}{% else %}{{father.name}}{% endifequal %}</a>
 {% endfor %}
 <span class="pagetitle">{{feed.title}}</span>
 {% endblock navbar%}

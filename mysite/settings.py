@@ -65,6 +65,8 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
 "django.core.context_processors.request",
 "django.core.context_processors.media",
 "django.core.context_processors.csrf",
+'wurfl.context_processors.wurfl_device',
+'wurfl.context_processors.device_specific_media',
 "django.contrib.messages.context_processors.messages")
 
 
@@ -83,6 +85,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'wurfl.middleware.WurflMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )

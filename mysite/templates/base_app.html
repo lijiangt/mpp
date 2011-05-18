@@ -6,8 +6,10 @@
 <div id="navbar">
 	<div class="breadcrumbs homepage">
 		<a name="top" href="/"
-		class="homelink"><img src="{% media_url %}/themes/{% theme %}/button/homelink.png" width="57"
-		height="45" alt="主页" /></a>
+		class="homelink">
+{% ifequal style_group "groups-smart" %}
+<img src="{% media_url %}/themes/{% theme %}/button/homelink.png" width="57"
+		height="45" alt="首页" />{% else %}首页{% endifequal %}</a>
 		{% block navbar %}{% endblock navbar %}
 	</div>
 </div>
