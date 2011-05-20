@@ -21,9 +21,11 @@
 <ul class="nav">
 {% for entry in result.forecasts %}
 <li>
-<img sytle="float:right" src="http://g0.gstatic.com{{ entry.icon }}"/>
-<div>{{ entry.day_of_week }}</div>
-<div class="smallprint"><i> {{ entry.condition }}&nbsp;&nbsp;{{ entry.low }}℃-{{ entry.high }}℃  </i></div> </li>
+<img style="float:right" src="http://g0.gstatic.com{{ entry.icon }}"/>
+<div>
+{{ entry.day_of_week }}
+</div>
+<i class="smallprint"> {{ entry.condition }}&nbsp;&nbsp;{{ entry.low }}℃-{{ entry.high }}℃  </i></li>
 {% endfor %}
 </ul>
 
