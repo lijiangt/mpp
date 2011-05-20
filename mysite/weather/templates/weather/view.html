@@ -11,14 +11,19 @@
 
 {% block content %}
 <div class="focal"> 
-北京  <br /> 当前： {{result.current_conditions.condition}}    <img src="http://g0.gstatic.com{{ result.current_conditions.icon }}"/><br />
-{{result.current_conditions.wind_condition}}  <br />
-{{result.current_conditions.temp_c}}℃     {{result.current_conditions.humidity}}   <br />
+<div><h2>北京</h2>
+<img style="float:right" src="http://g0.gstatic.com{{ result.current_conditions.icon }}"/></div>
+<div> 当前： {{result.current_conditions.condition}} &nbsp; {{result.current_conditions.temp_c}}℃ </div>
+<div>{{result.current_conditions.wind_condition}}</div> 
+<div>{{result.current_conditions.humidity}}   </div>
 </div> 
 
 <ul class="nav">
 {% for entry in result.forecasts %}
-<li>{{ entry.day_of_week }} {{ entry.low }}℃-{{ entry.high }}℃ <img src="http://g0.gstatic.com{{ entry.icon }}"/>  {{ entry.condition }} </li>
+<li>
+<img sytle="float:right" src="http://g0.gstatic.com{{ entry.icon }}"/>
+<div>{{ entry.day_of_week }}</div>
+<div class="smallprint"><i> {{ entry.condition }}&nbsp;&nbsp;{{ entry.low }}℃-{{ entry.high }}℃  </i></div> </li>
 {% endfor %}
 </ul>
 
