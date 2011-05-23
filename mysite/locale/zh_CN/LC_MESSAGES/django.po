@@ -363,3 +363,9 @@ msgstr "校园导览"
 
 msgid "Mobile OA"
 msgstr "移动OA"
+
+msgid "News"
+msgstr "新闻"
+
+msgid "Announcement"
+msgstr "通知"
