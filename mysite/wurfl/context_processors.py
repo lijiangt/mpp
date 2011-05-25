@@ -60,7 +60,9 @@ def device_specific_media(request):
     else:
         style_group = "dumb"
         use_javascript = False
-    
+    if request.META.get('HTTP_USER_AGENT', '').find('UCWEB') != -1:
+        style_group = "dumb"
+        use_javascript = False
     return {
         'style_group': 'groups-%s' % style_group,
         'use_javascript': use_javascript,
@@ -73,3 +75,13 @@ def wurfl_device(request):
         'map_width': request.map_width,
         'map_height': request.map_height,
     }
+    
+def print_info(request):
+    for k,v in request.META.items():
+        if k.startswith('HTTP'):
+            print '%s: %s'%(k,v)
+    print 'user-agent: ' + request.META.get('HTTP_USER_AGENT', '')
+#    print device_specific_media(request)
+#    print request.brower
+#    print request.device
+    return {}

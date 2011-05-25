@@ -72,6 +72,7 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
 
 if DEBUG:
     TEMPLATE_CONTEXT_PROCESSORS += ("django.core.context_processors.debug",)
+    TEMPLATE_CONTEXT_PROCESSORS += ("wurfl.context_processors.print_info",)
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
