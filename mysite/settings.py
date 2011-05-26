@@ -119,7 +119,8 @@ INSTALLED_APPS = (
     'departments',
     'schl',
     'bmap',
-    'weather'
+    'weather',
+    'event',
 )
 
 CACHES = {
@@ -164,7 +165,8 @@ EXTEND_HTTP_METHOD='__http_method'
 from base import Page,Provider
 PAGES = {
     'page-home-cn':Page('Bupt Mobile Portal',providers=[
-           Provider('cms.app.CmsApp',app_label='today_event_cn'),
+#           Provider('cms.app.CmsApp',app_label='today_event_cn'),
+           Provider('base.GenericApp',local_name='Today Event',url='/event/',iconUrl='/s/event.png'),
            Provider('cms.app.CmsApp',app_label='bupt_news_cn'),
            Provider('base.GenericApp',local_name='Schools List',url='/schl/',iconUrl='/s/schl.png'),
            Provider('base.GenericApp',local_name='Departments List',url='/departments/',iconUrl='/s/department.png'),
@@ -186,6 +188,7 @@ PAGES = {
    #           Provider('cms.app.CmsApp',app_label='about_cn'),
                                                ]),
     'page-home':Page('Bupt Mobile Portal',providers=[
+            Provider('base.GenericApp',local_name='Today Event',url='/event/',iconUrl='/s/event.png'),
             Provider('cms.app.CmsApp',app_label='bupt_news'),
             Provider('cms.app.CmsApp',app_label='school_info'),
             Provider('cms.app.CmsApp',app_label='fast_track'),
@@ -209,6 +212,7 @@ PAGES = {
 
 if False:
     print gettext_noop('Bupt Mobile Portal')
+    print gettext_noop('Today Event')
     print gettext_noop('Departments List')
     print gettext_noop('BUPT Map')
     print gettext_noop('Schools List')

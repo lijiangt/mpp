@@ -29,6 +29,7 @@ urlpatterns = patterns('',
     (r'^bmap/',include('bmap.urls')), 
     (r'^schl/',include('schl.urls')), 
     (r'^weather/',include('weather.urls')),
+    (r'^event/',include('event.urls')),
     (r'^about/$', direct_to_template, {
         'template': 'about.html'
         })

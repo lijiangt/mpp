@@ -1,11 +1,13 @@
 {% extends "base_app.html" %}
 {% load media %}
 {% load theme %}
-
+{% load i18n %}
 {% block title %}{{event.title}}{% endblock title %}
 
 {% block navbar %}
-
+<a href="./" class="module">
+	<img src="{% media_url %}/event.png" width="28" height="28" alt="{{day|date:'Y-m-d'}} 事件" />
+</a>
 <span class="pagetitle">{{event.title}}</span>
 {% endblock navbar %}
 
@@ -13,7 +15,27 @@
 <div class="focal">
 <p class="smallprint" style="border-bottom: 1px dotted;margin-bottom: 1.33em;
 margin-top: 10px;min-height: 20px;
-padding-bottom: 0.33em;">发布时间：{{event.posted|date:"Y-m-d G:i"}}</p> 
+padding-bottom: 0.33em;">
+时间：{{event.posted|date:"Y-m-d G:i"}}<br />
+部门：{{event.department.name}}<br />
+类型：{% spaceless %}
+{% if event.category == 10 %}
+	{% trans 'News' %}
+{% endif %}
+{% if event.category == 20 %}
+	{% trans 'Announcement' %}
+{% endif %}
+{% if event.category == 30 %}
+	{% trans 'Bulletin' %}
+{% endif %}
+{% if event.category == 40 %}
+	{% trans 'Jobs at Bupt' %}
+{% endif %}
+{% if event.category == 50 %}
+	{% trans 'Others' %}
+{% endif %}
+{% endspaceless %}
+</p> 
 <div class="content">   
 
 <p> {{event.content}}</p>

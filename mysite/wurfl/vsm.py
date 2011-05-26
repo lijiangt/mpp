@@ -1,5 +1,4 @@
 from math import sqrt
-import time
 
 from pywurfl.algorithms import Algorithm
 from wurfl_data import devices

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-10 13:10+0800\n"
+"POT-Creation-Date: 2011-05-26 20:53+0800\n"
 "PO-Revision-Date: 2011-04-13 14:21+0830\n"
 "Last-Translator: zzq <buptnu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,118 +17,166 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:151
+#: settings.py:158
 msgid "Chinese"
 msgstr "中文"
 
-#: settings.py:152
+#: settings.py:159
 msgid "English"
 msgstr "英文"
+
+#: settings.py:214
+msgid "Bupt Mobile Portal"
+msgstr "北邮移动门户"
+
+#: settings.py:215 bmap/templates/d_list.html:6
+#: bmap/templates/d_list.html.py:10 bmap/templates/d_list.html:12
+#: bmap/templates/dd_list.html:6 bmap/templates/dd_list.html.py:10
+#: bmap/templates/dd_list.html:12 departments/templates/department_list.html:6
+#: departments/templates/department_list.html:9
+msgid "Departments List"
+msgstr "管理机构"
+
+#: settings.py:216 bmap/templates/map.html:6 bmap/templates/map.html.py:12
+msgid "BUPT Map"
+msgstr "校园地图"
+
+#: settings.py:217 bmap/templates/s_list.html:6
+#: bmap/templates/s_list.html.py:10 bmap/templates/s_list.html:12
+#: bmap/templates/ss_list.html:6 bmap/templates/ss_list.html.py:10
+#: bmap/templates/ss_list.html:12 schl/templates/schl_list.html:6
+#: schl/templates/schl_list.html.py:9
+msgid "Schools List"
+msgstr "学院介绍"
+
+#: settings.py:219
+msgid "About Site"
+msgstr "关于站点"
+
+#: settings.py:221
+msgid "Mobile Card"
+msgstr "校园一卡通"
+
+#: settings.py:222
+msgid "Mobile VOD"
+msgstr "校园媒体"
+
+#: settings.py:223
+msgid "Mobile Library"
+msgstr "掌上图书馆"
+
+#: settings.py:224
+msgid "Mobile Dinning"
+msgstr "餐饮服务"
+
+#: settings.py:225
+msgid "Course Info"
+msgstr "课程信息"
+
+#: settings.py:226
+msgid "Campus Cam"
+msgstr "校园传感器"
+
+#: settings.py:227
+msgid "Talk to President"
+msgstr "校长直通车"
+
+#: settings.py:228
+msgid "Campus Navi"
+msgstr "校园导览"
+
+#: settings.py:229
+msgid "Mobile OA"
+msgstr "移动OA"
 
 #: views.py:7
 msgid "page-home"
 msgstr "page-home-cn"
 
-#: cms/models.py:9
-#: cms/models.py:24
-#: cms/templates/cms/category_detail.html:38
+#: bmap/templates/bbuilding_list.html:6 bmap/templates/bbuilding_list.html:10
+#: bmap/templates/bbuilding_list.html:12 bmap/templates/building_list.html:6
+#: bmap/templates/building_list.html:10 bmap/templates/building_list.html:12
+#, fuzzy
+msgid "Buidlings List"
+msgstr "链接列表"
+
+#: cms/models.py:9 cms/models.py:24 cms/templates/cms/category_detail.html:38
 #: cms/templates/cms/category_list.html:46
 msgid "Father Category"
 msgstr "父类别"
 
-#: cms/models.py:10
-#: cms/templates/cms/category_detail.html:41
+#: cms/models.py:10 cms/templates/cms/category_detail.html:41
 #: cms/templates/cms/category_list.html:49
 msgid "Article List"
 msgstr "文章列表"
 
-#: cms/models.py:11
-#: cms/templates/cms/category_detail.html:44
+#: cms/models.py:11 cms/templates/cms/category_detail.html:44
 #: cms/templates/cms/category_list.html:52
 msgid "Article With Picture List"
 msgstr "图文列表"
 
-#: cms/models.py:12
-#: cms/templates/cms/category_detail.html:47
+#: cms/models.py:12 cms/templates/cms/category_detail.html:47
 #: cms/templates/cms/category_list.html:55
 msgid "Single Article"
 msgstr "单篇文章/图文"
 
-#: cms/models.py:13
-#: cms/templates/cms/category_detail.html:50
+#: cms/models.py:13 cms/templates/cms/category_detail.html:50
 #: cms/templates/cms/category_list.html:58
 msgid "Link List"
 msgstr "链接列表"
 
-#: cms/models.py:14
-#: cms/models.py:20
-#: cms/templates/cms/category_detail.html:53
+#: cms/models.py:14 cms/models.py:20 cms/templates/cms/category_detail.html:53
 #: cms/templates/cms/category_detail.html:62
 #: cms/templates/cms/category_list.html:61
 msgid "Redirection Link"
 msgstr "跳转链接"
 
-#: cms/models.py:15
-#: cms/models.py:20
-#: cms/templates/cms/category_detail.html:56
+#: cms/models.py:15 cms/models.py:20 cms/templates/cms/category_detail.html:56
 #: cms/templates/cms/category_detail.html:68
 #: cms/templates/cms/category_list.html:64
 msgid "RSS"
 msgstr "RSS订阅"
 
-#: cms/models.py:17
-#: cms/templates/cms/category_detail.html:27
+#: cms/models.py:17 cms/templates/cms/category_detail.html:27
 msgid "Name"
 msgstr "Name"
 
-#: cms/models.py:18
-#: cms/templates/cms/category_detail.html:31
+#: cms/models.py:18 cms/templates/cms/category_detail.html:31
 msgid "Icon"
 msgstr "图标"
 
-#: cms/models.py:19
-#: cms/models.py:80
-#: cms/templates/cms/article_detail.html:51
+#: cms/models.py:19 cms/models.py:80 cms/templates/cms/article_detail.html:51
 #: cms/templates/cms/category_detail.html:35
 msgid "Type"
 msgstr "类型"
 
-#: cms/models.py:20
-#: cms/models.py:85
-#: cms/views_adm.py:164
+#: cms/models.py:20 cms/models.py:85 cms/views_adm.py:164
 #: cms/templates/cms/category_detail.html:68
 msgid "URL"
 msgstr "链接"
 
-#: cms/models.py:22
-#: cms/templates/cms/article_detail.html:93
+#: cms/models.py:22 cms/templates/cms/article_detail.html:93
 #: cms/templates/cms/category_detail.html:78
 msgid "Created Time"
 msgstr "创建时间"
 
-#: cms/models.py:23
-#: cms/models.py:84
-#: cms/templates/cms/article_detail.html:97
-#: cms/templates/cms/category_detail.html:82
+#: cms/models.py:23 cms/models.py:84 cms/templates/cms/article_detail.html:97
+#: cms/templates/cms/category_detail.html:82 event/models.py:19
 msgid "Last Modified Time"
 msgstr "最后修改时间"
 
-#: cms/models.py:26
-#: cms/templates/cms/category_detail.html:74
+#: cms/models.py:26 cms/templates/cms/category_detail.html:74
 msgid "Application Label"
 msgstr "应用标签"
 
-#: cms/models.py:27
-#: departments/forms.py:7
-#: departments/forms.py:14
-#: departments/models.py:11
-#: departments/models.py:23
+#: cms/models.py:27 departments/forms.py:7 departments/forms.py:14
+#: departments/models.py:11 departments/models.py:23 schl/forms.py:7
+#: schl/forms.py:14 schl/models.py:12
 msgid "Description"
 msgstr "描述"
 
-#: cms/models.py:29
-#: cms/models.py:81
-#: cms/templates/cms/article_detail.html:47
+#: cms/models.py:29 cms/models.py:81 cms/templates/cms/article_detail.html:47
+#: event/models.py:21
 msgid "Category"
 msgstr "类别"
 
@@ -136,58 +184,47 @@ msgstr "类别"
 msgid "Categories"
 msgstr "类别"
 
-#: cms/models.py:69
-#: cms/models.py:75
-#: cms/templates/cms/article_detail.html:54
+#: cms/models.py:69 cms/models.py:75 cms/templates/cms/article_detail.html:54
 #: cms/templates/cms/article_detail.html:84
 #: cms/templates/cms/category_detail.html:129
 msgid "Normal"
 msgstr "普通"
 
-#: cms/models.py:70
-#: cms/templates/cms/article_detail.html:57
+#: cms/models.py:70 cms/templates/cms/article_detail.html:57
 #: cms/templates/cms/category_detail.html:132
 msgid "Article With Picture"
 msgstr "图文"
 
-#: cms/models.py:71
-#: cms/templates/cms/article_detail.html:60
+#: cms/models.py:71 cms/templates/cms/article_detail.html:60
 #: cms/templates/cms/category_detail.html:135
 msgid "Friend Link"
 msgstr "友情链接"
 
-#: cms/models.py:74
-#: cms/models.py:86
-#: cms/templates/cms/article_detail.html:80
+#: cms/models.py:74 cms/models.py:86 cms/templates/cms/article_detail.html:80
 #: cms/templates/cms/article_detail.html:82
 msgid "Set Top"
 msgstr "置顶"
 
-#: cms/models.py:77
-#: cms/templates/cms/article_detail.html:43
-#: feedback/models.py:20
+#: cms/models.py:77 cms/templates/cms/article_detail.html:43
+#: event/models.py:15 feedback/models.py:20
 msgid "Title"
 msgstr "标题"
 
-#: cms/models.py:78
-#: cms/templates/cms/article_detail.html:75
-#: feedback/models.py:7
-#: feedback/models.py:21
+#: cms/models.py:78 cms/templates/cms/article_detail.html:75
+#: event/models.py:16 feedback/models.py:7 feedback/models.py:21
 msgid "Content"
 msgstr "内容"
 
-#: cms/models.py:79
-#: cms/views_adm.py:156
+#: cms/models.py:79 cms/views_adm.py:156
 #: cms/templates/cms/article_detail.html:65
 msgid "Picture"
 msgstr "图片"
 
-#: cms/models.py:82
-#: cms/templates/cms/article_detail.html:89
+#: cms/models.py:82 cms/templates/cms/article_detail.html:89
 msgid "View Times"
 msgstr "查看次数"
 
-#: cms/models.py:83
+#: cms/models.py:83 event/models.py:18
 msgid "Publish Time"
 msgstr "发布时间"
 
@@ -203,53 +240,46 @@ msgstr "文章"
 msgid "Url"
 msgstr "网址"
 
-#: cms/templates/content/feed_entry.html:20
+#: cms/templates/content/feed_entry.html:27
 msgid "Please click here to visit full aricle."
 msgstr "请点击此处查看全文。"
 
-#: departments/forms.py:6
-#: departments/forms.py:24
-#: departments/models.py:10
+#: departments/forms.py:6 departments/forms.py:24 departments/models.py:10
+#: schl/forms.py:6 schl/forms.py:24
 msgid "Building"
 msgstr "办公楼"
 
-#: departments/forms.py:8
-#: departments/models.py:12
+#: departments/forms.py:8 departments/models.py:12 schl/forms.py:8
 msgid "Latitude"
 msgstr "经度"
 
-#: departments/forms.py:9
-#: departments/models.py:13
+#: departments/forms.py:9 departments/models.py:13 schl/forms.py:9
 msgid "Longitude"
 msgstr "纬度"
 
-#: departments/forms.py:13
-#: departments/forms.py:21
-#: departments/models.py:22
+#: departments/forms.py:13 departments/forms.py:21 departments/models.py:22
+#: event/models.py:20 schl/forms.py:13 schl/forms.py:21 schl/models.py:26
 msgid "Department"
 msgstr "部门"
 
-#: departments/forms.py:15
-#: departments/forms.py:22
-#: departments/models.py:24
-#: departments/models.py:39
+#: departments/forms.py:15 departments/forms.py:22 departments/models.py:24
+#: departments/models.py:39 schl/forms.py:15 schl/forms.py:22
+#: schl/models.py:13 schl/models.py:27
 msgid "Room"
 msgstr "房间"
 
-#: departments/forms.py:16
-#: departments/forms.py:23
-#: departments/models.py:25
-#: departments/models.py:40
+#: departments/forms.py:16 departments/forms.py:23 departments/models.py:25
+#: departments/models.py:40 schl/forms.py:16 schl/forms.py:23
+#: schl/models.py:14 schl/models.py:28
 msgid "Phone"
 msgstr "电话"
 
-#: departments/forms.py:17
-#: departments/models.py:26
+#: departments/forms.py:17 departments/models.py:26 schl/forms.py:17
 msgid "WorkTime"
 msgstr "工作时间"
 
-#: departments/forms.py:18
-#: departments/models.py:27
+#: departments/forms.py:18 departments/models.py:27 schl/forms.py:18
+#: schl/models.py:15
 msgid "MainPageUrl"
 msgstr "办公主页"
 
@@ -257,8 +287,42 @@ msgstr "办公主页"
 msgid "SubDepartment"
 msgstr "子部门"
 
-#: feedback/models.py:5
-#: feedback/models.py:19
+#: event/models.py:9 event/templates/event/event.html:23
+msgid "News"
+msgstr "新闻"
+
+#: event/models.py:10 event/templates/event/event.html:26
+msgid "Announcement"
+msgstr "通知"
+
+#: event/models.py:11 event/templates/event/event.html:29
+msgid "Bulletin"
+msgstr "通报"
+
+#: event/models.py:12 event/templates/event/event.html:32
+msgid "Jobs at Bupt"
+msgstr "招聘"
+
+#: event/models.py:13 event/templates/event/event.html:35
+msgid "Others"
+msgstr "其他"
+
+#: event/models.py:17
+msgid "Date"
+msgstr "日期"
+
+#: event/models.py:23
+msgid "Event"
+msgstr "事件"
+
+#: event/models.py:24
+msgid "Events"
+msgstr "事件"
+
+msgid "Today Event"
+msgstr "今日事件"
+
+#: feedback/models.py:5 feedback/models.py:19
 msgid "Email"
 msgstr "邮箱"
 
@@ -270,18 +334,15 @@ msgstr "可选"
 msgid "Referer"
 msgstr "引用"
 
-#: feedback/models.py:8
-#: feedback/models.py:22
+#: feedback/models.py:8 feedback/models.py:22
 msgid "Aleady Read"
 msgstr "已读"
 
-#: feedback/models.py:9
-#: feedback/models.py:23
+#: feedback/models.py:9 feedback/models.py:23
 msgid "Commit Time"
 msgstr "创建时间"
 
-#: feedback/models.py:10
-#: feedback/models.py:24
+#: feedback/models.py:10 feedback/models.py:24
 msgid "Commit Ip"
 msgstr "提交IP"
 
@@ -305,6 +366,11 @@ msgstr "功能建议"
 msgid "Feature Suggests"
 msgstr "功能建议"
 
+#: schl/models.py:11
+#, fuzzy
+msgid "School"
+msgstr "学院介绍"
+
 #: templates/lib/form_buttons.html:2
 msgid "Submit"
 msgstr "提交"
@@ -317,55 +383,6 @@ msgstr "充值"
 msgid "Cancel"
 msgstr "取消"
 
-#: weather/templates/weather/view.html:4
-#: weather/templates/weather/view.html:10
+#: weather/templates/weather/view.html:6 weather/templates/weather/view.html:9
 msgid "Weather Report"
 msgstr "天气预报"
-
-msgid "Bupt Mobile Portal"
-msgstr "北邮移动门户"
-
-msgid "Departments List"
-msgstr "管理机构"
-
-msgid "BUPT Map"
-msgstr "校园地图"
-
-msgid "Mobile Card"
-msgstr "校园一卡通"
-
-msgid "Mobile VOD"
-msgstr "校园媒体"
-
-msgid "About Site"
-msgstr "关于站点"
-
-msgid "Schools List"
-msgstr "学院介绍"
-
-msgid "Mobile Library"
-msgstr "掌上图书馆"
-
-msgid "Mobile Dinning"
-msgstr "餐饮服务"
-
-msgid "Course Info"
-msgstr "课程信息"
-
-msgid "Campus Cam"
-msgstr "校园传感器"
-
-msgid "Talk to President"
-msgstr "校长直通车"
-
-msgid "Campus Navi"
-msgstr "校园导览"
-
-msgid "Mobile OA"
-msgstr "移动OA"
-
-msgid "News"
-msgstr "新闻"
-
-msgid "Announcement"
-msgstr "通知"
