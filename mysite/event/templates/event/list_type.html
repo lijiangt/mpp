@@ -1,0 +1,26 @@
+{% extends "base_app.html" %}
+{% load media %}
+{% load theme %}
+{% load i18n %}
+
+{% block title %}请选择类型{% endblock title %}
+
+{% block navbar %}
+<a href="../" class="module">
+	<img src="{% media_url %}/event.png" width="28" height="28" alt="今日事件" />
+</a>
+<span class="pagetitle">请选择类型</span>
+{% endblock navbar%}
+
+{% block content %}
+<ul class="nav">
+            {% for id,name in types %}
+                <li><a href="{{id}}/{{today|date:'Y/m/d'}}/">{{name}}</a></li>
+			{% endfor %}
+</ul>
+
+<ul class="secondary"> 
+	<li><a href="../">按日期查看</a></li> 	
+	<li><a href="../dep/">分部门按日期查看</a></li> 
+</ul> 
+{% endblock content %}

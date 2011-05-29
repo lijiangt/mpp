@@ -2,23 +2,70 @@
 {% load media %}
 {% load theme %}
 
-{% block title %}{{today|date:"Y-m-d"}} 事件{% endblock title %}
+{% block title %}
+{% if display_type == 0 %}
+{{today|date:"Y-m-d"}} {{weekday}} 事件
+{% endif %}
+{% if display_type == 1 %}
+ {{today|date:"Y-m-d"}} {{weekday}} {{ category_name }}
+{% endif %} 
+{% if display_type == 2 %}
+{{ dep.name }} {{today|date:"Y-m-d"}} {{weekday}} 事件
+{% endif %}
+{% endblock title %}
 
 {% block navbar %}
-
-<span class="pagetitle">{{today|date:"Y-m-d"}} 事件</span>
+<a href="../../../../../" class="module">
+	<img src="{% media_url %}/event.png" width="28" height="28" alt="今日事件" />
+</a>
+{% if display_type == 1 %}
+ <a href="../../../../" class="module">请选择类型</a>
+{% endif %} 
+{% if display_type == 2 %}
+<a href="../../../../" class="module">请选择部门</a>
+{% endif %}
+<span class="pagetitle">
+{% if display_type == 0 %}
+{{today|date:"Y-m-d"}} {{weekday}} 事件
+{% endif %}
+{% if display_type == 1 %}
+ {{today|date:"Y-m-d"}} {{weekday}} {{ category_name }}
+{% endif %} 
+{% if display_type == 2 %}
+{{ dep.name }} {{today|date:"Y-m-d"}} {{weekday}} 事件
+{% endif %}
+</span>
 {% endblock navbar%}
 
 {% block content %}
 <div class="nonfocal"> 
-<p><a href="../../../{{previous|date:'Y/m/d'}}">&lt; {{previous|date:"Y-m-d"}}</a> | <a href="../../../{{next|date:'Y/m/d'}}">{{next|date:"Y-m-d"}}&gt;</a></p> 
+<p><a href="../../../{{previous|date:'Y/m/d'}}">&lt; {{previous|date:"Y-m-d"}} {{previous_weekday}}</a> | <a href="../../../{{next|date:'Y/m/d'}}">{{next|date:"Y-m-d"}} {{next_weekday}} &gt;</a></p> 
 </div> 
 <ul class="nav">
 	{% for event in events %}
-        <li><a href="{{event.id}}">{{event.title}}<div class="smallprint"><i>发布时间：{{event.posted|date:"Y-m-d G:i"}}</i></div></a></li>
+        <li><a href="{{event.id}}">{{event.title}}<div class="smallprint"><i>时间：{{event.date|date:"Y-m-d G:i"}}</i></div></a></li>
 	{% empty %}
 		<li>本日无事件，请查看明日事件</li>
 	{% endfor %}
-	
 </ul>
+
+{% if display_type == 0 %}
+	<ul class="secondary"> 
+	<li><a href="../../../../../dep/">分部门按日期查看</a></li> 
+	<li><a href="../../../../../type/">分类型按日期查看</a></li> 
+	</ul>
+{% endif %}
+{% if display_type == 1 %}
+<ul class="secondary"> 
+	<li><a href="../../../../../">按日期查看</a></li> 	
+	<li><a href="../../../../../dep/">分部门按日期查看</a></li> 
+</ul> 
+{% endif %}
+{% if display_type == 2 %}
+<ul class="secondary"> 
+	<li><a href="../../../../../">按日期查看</a></li> 	
+	<li><a href="../../../../../type/">分类型按日期查看</a></li> 
+</ul> 
+{% endif %}
+
 {% endblock content %}
