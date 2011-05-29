@@ -12,7 +12,7 @@
 {% block content %}
 <div class="focal"> 
 <div><h2>北京</h2>
-<img style="float:right" src="http://g0.gstatic.com{{ result.current_conditions.icon }}"/></div>
+<img style="float:right" src="{{ result.current_conditions.icon }}"/></div>
 <div> 当前： {{result.current_conditions.condition}} &nbsp; {{result.current_conditions.temp_c}}℃ </div>
 <div>{{result.current_conditions.wind_condition}}</div> 
 <div>{{result.current_conditions.humidity}}   </div>
@@ -21,7 +21,7 @@
 <ul class="nav">
 {% for entry in result.forecasts %}
 <li>
-<img style="float:right" src="http://g0.gstatic.com{{ entry.icon }}"/>
+<img style="float:right" src="{{ entry.icon }}"/>
 <div>
 {{ entry.day_of_week }}
 </div>
